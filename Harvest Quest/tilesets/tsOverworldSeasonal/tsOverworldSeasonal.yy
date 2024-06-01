@@ -56,8 +56,8 @@
   },
   "spriteNoExport":false,
   "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
+    "name":"WorldTiles",
+    "path":"texturegroups/WorldTiles",
   },
   "tileAnimation":{
     "FrameData":[
