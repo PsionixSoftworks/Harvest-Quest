@@ -57,6 +57,7 @@
   },
   "name":"Harvest Quest",
   "resources":[
+    {"id":{"name":"objCamera","path":"objects/objCamera/objCamera.yy",},},
     {"id":{"name":"objEntity","path":"objects/objEntity/objEntity.yy",},},
     {"id":{"name":"objEntityPlayer","path":"objects/objEntityPlayer/objEntityPlayer.yy",},},
     {"id":{"name":"objHarvestQuest","path":"objects/objHarvestQuest/objHarvestQuest.yy",},},

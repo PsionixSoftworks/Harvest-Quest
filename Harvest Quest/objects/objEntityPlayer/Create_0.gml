@@ -13,7 +13,10 @@ state			= PlayerState.PLAYER_STATE_NORMAL;
 
 // Other variables:
 active			= false;
-alarm[0]		= room_speed * 1.5;
+alarm[0]		= room_speed / 2;
 image_index		= 0;
 image_speed		= 0;
 depth			= -y;
+
+// Create the camera for the player:
+instance_create_layer(x, y, "Instances", objCamera);
