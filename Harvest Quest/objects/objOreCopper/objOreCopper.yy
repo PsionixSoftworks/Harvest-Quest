@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"objOreCopper",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"objOreCopper",
   "overriddenProperties":[],
@@ -31,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":true,
   "spriteId":{
-    "name":"sprOreSilver",
-    "path":"sprites/sprOreSilver/sprOreSilver.yy",
+    "name":"sprOreCopper",
+    "path":"sprites/sprOreCopper/sprOreCopper.yy",
   },
   "spriteMaskId":null,
   "visible":true,

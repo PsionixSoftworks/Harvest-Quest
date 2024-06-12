@@ -30,12 +30,8 @@ function player_find_state(_state)
 function player_state_normal()
 {
 	// Set the xspeed and yspeed to our key mapping:
-	xspeed = (keyboard_check(vk_right) - keyboard_check(vk_left))	* spd;
-	yspeed = (keyboard_check(vk_down) - keyboard_check(vk_up))		* spd;
-	
-	// Move x and y relative to the xspeed and yspeed:
-	x += xspeed;
-	y += yspeed;
+	xspeed = (keyboard_check(ord("D")) - keyboard_check(ord("A"))) * spd;
+	yspeed = (keyboard_check(ord("S")) - keyboard_check(ord("W"))) * spd;
 	
 	// Check for horizontal movement:
 	if (xspeed == 0)
@@ -43,11 +39,11 @@ function player_state_normal()
 		// Check for vertical movement:
 		if (yspeed < 0)
 		{
-			sprite_index = sprChar1WalkUp;
+			facing = "Up";
 		}
 		else if (yspeed > 0)
 		{
-			sprite_index = sprChar1WalkDown;
+			facing = "Down";
 		}
 	}
 	// This time, check for vertical movement first:
@@ -56,11 +52,11 @@ function player_state_normal()
 		// Check for horizontal movement:
 		if (xspeed < 0)
 		{
-			sprite_index = sprChar1WalkLeft;
+			facing = "Left";
 		}
 		else if (xspeed > 0)
 		{
-			sprite_index = sprChar1WalkRight;
+			facing = "Right";
 		}
 	}
 	
@@ -75,7 +71,90 @@ function player_state_normal()
 /// @func player_state_pickaxe(void);
 function player_state_pickaxe()
 {
-	// TODO: Fill this in on the next commit...
+	sprite_index = asset_get_index("sprChar1Pickaxe" + string(facing));
+	image_speed = 1;
+	
+	// Find an ore when the player is facing down:
+	var _inst = instance_place(x, y + 1, objOre);
+	if (_inst != noone)
+	{
+		// Check if we're facing down:
+		if (facing == "Down")
+		{
+			// Hit the rock each time the player's subimaage reaches the end:
+			if (image_index >= image_number - 1)
+			{
+				if (!_inst.hit)
+				{
+					_inst.hp--;
+					_inst.hit = true;
+					_inst.yoffset = 1;
+				}
+			}
+		}
+	}
+	
+	// Find an ore when the player is facing up:
+	var _inst = instance_place(x, y - 1, objOre);
+	if (_inst != noone)
+	{
+		// Check if we're facing down:
+		if (facing == "Up")
+		{
+			// Hit the rock each time the player's subimaage reaches the end:
+			if (image_index >= image_number - 1)
+			{
+				if (!_inst.hit)
+				{
+					_inst.hp--;
+					_inst.hit = true;
+					_inst.yoffset = -1;
+				}
+			}
+		}
+	}
+	
+	// Find an ore when the player is facing right:
+	var _inst = instance_place(x + 1, y, objOre);
+	if (_inst != noone)
+	{
+		// Check if we're facing down:
+		if (facing == "Right")
+		{
+			// Hit the rock each time the player's subimaage reaches the end:
+			if (image_index >= image_number - 1)
+			{
+				if (!_inst.hit)
+				{
+					_inst.hp--;
+					_inst.hit = true;
+					_inst.xoffset = 1;
+					_inst.yoffset = 1;
+				}
+			}
+		}
+	}
+	
+	// Find an ore when the player is facing left:
+	var _inst = instance_place(x - 1, y, objOre);
+	if (_inst != noone)
+	{
+		// Check if we're facing down:
+		if (facing == "Left")
+		{
+			// Hit the rock each time the player's subimaage reaches the end:
+			if (image_index >= image_number - 1)
+			{
+				if (!_inst.hit)
+				{
+					_inst.hp--;
+					_inst.hit = true;
+					_inst.xoffset = -1;
+					_inst.yoffset = 1;
+				}
+			}
+		}
+	}
 }
 
 /// @func player_state_axe(void);
@@ -100,4 +179,28 @@ function player_state_hoe()
 function player_state_fishing()
 {
 	// TODO: Fill this in on the next commit...
+}
+
+/// @func player_handle_collision(void);
+function player_handle_collision()
+{
+	if (place_meeting(x + xspeed, y, objSolid))
+	{
+		while (!place_meeting(x + sign(xspeed), y, objSolid))
+		{
+			x += sign(xspeed);
+		}
+		xspeed = 0;
+	}
+	x += xspeed;
+	
+	if (place_meeting(x, y + yspeed, objSolid))
+	{
+		while (!place_meeting(x, y + sign(yspeed), objSolid))
+		{
+			y += sign(yspeed);
+		}
+		yspeed = 0;
+	}
+	y += yspeed;
 }

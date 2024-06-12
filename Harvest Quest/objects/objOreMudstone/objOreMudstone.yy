@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"objOreMudstone",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"objOreMudstone",
   "overriddenProperties":[],
@@ -31,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":true,
   "spriteId":{
-    "name":"sprOreChalk",
-    "path":"sprites/sprOreChalk/sprOreChalk.yy",
+    "name":"sprOreMudstone",
+    "path":"sprites/sprOreMudstone/sprOreMudstone.yy",
   },
   "spriteMaskId":null,
   "visible":true,

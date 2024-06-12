@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"objOrePumice",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"objOrePumice",
   "overriddenProperties":[],
@@ -31,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":true,
   "spriteId":{
-    "name":"sprOreObsidian",
-    "path":"sprites/sprOreObsidian/sprOreObsidian.yy",
+    "name":"sprOrePumice",
+    "path":"sprites/sprOrePumice/sprOrePumice.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"objOreChalk",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"objOreChalk",
   "overriddenProperties":[],
@@ -9,7 +11,10 @@
     "name":"Mining",
     "path":"folders/Objects/Mining.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"objOre",
+    "path":"objects/objOre/objOre.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -26,8 +31,11 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":false,
-  "spriteId":null,
+  "solid":true,
+  "spriteId":{
+    "name":"sprOreChalk",
+    "path":"sprites/sprOreChalk/sprOreChalk.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

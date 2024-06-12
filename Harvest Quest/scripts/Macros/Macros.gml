@@ -1,0 +1,1 @@
+#macro NULL				0

@@ -11,3 +11,9 @@ if (room == rmInit)
 	game_state = GameState.GAME_STATE_PLAY;
 	room_goto(global.start_room);
 }
+
+// We need to adjust the GUI layer to the screen size for things to render properly:
+var _w, _h;
+	_w = camera_get_view_width(view_camera[0]);
+	_h = camera_get_view_height(view_camera[0]);
+display_set_gui_size(_w, _h);

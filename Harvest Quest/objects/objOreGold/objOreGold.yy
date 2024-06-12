@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"objOreGold",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"objOreGold",
   "overriddenProperties":[],
@@ -31,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":true,
   "spriteId":{
-    "name":"sprOreMudstone",
-    "path":"sprites/sprOreMudstone/sprOreMudstone.yy",
+    "name":"sprOreGold",
+    "path":"sprites/sprOreGold/sprOreGold.yy",
   },
   "spriteMaskId":null,
   "visible":true,
