@@ -1,4 +1,4 @@
-/// @description Ipdate the Player based on state.
+/// @description Update the Player based on state.
 // Check if the player is active:
 if (active)
 {
