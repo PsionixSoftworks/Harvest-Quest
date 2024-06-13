@@ -8,8 +8,8 @@
   "name":"objOreMudstone",
   "overriddenProperties":[],
   "parent":{
-    "name":"Mining",
-    "path":"folders/Objects/Mining.yy",
+    "name":"Ores",
+    "path":"folders/Objects/Ores.yy",
   },
   "parentObjectId":{
     "name":"objOre",

@@ -18,7 +18,7 @@
     {"$GMFolder":"","%Name":"Control","folderPath":"folders/Objects/Control.yy","name":"Control","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Entity","folderPath":"folders/Objects/Entity.yy","name":"Entity","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Item","folderPath":"folders/Objects/Item.yy","name":"Item","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Mining","folderPath":"folders/Objects/Mining.yy","name":"Mining","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Ores","folderPath":"folders/Objects/Ores.yy","name":"Ores","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"UI","folderPath":"folders/Objects/UI.yy","name":"UI","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Particle Systems","folderPath":"folders/Particle Systems.yy","name":"Particle Systems","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Paths","folderPath":"folders/Paths.yy","name":"Paths","resourceType":"GMFolder","resourceVersion":"2.0",},

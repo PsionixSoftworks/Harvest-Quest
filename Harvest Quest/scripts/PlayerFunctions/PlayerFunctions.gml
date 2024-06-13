@@ -68,6 +68,12 @@ function player_state_normal()
 		image_index = 0;
 }
 
+/// @func player_state_sword(void);
+function player_state_sword()
+{
+	// TODO: Fill this in later...
+}
+
 /// @func player_state_pickaxe(void);
 function player_state_pickaxe()
 {
@@ -160,25 +166,25 @@ function player_state_pickaxe()
 /// @func player_state_axe(void);
 function player_state_axe()
 {
-	// TODO: Fill this in on the next commit...
+	// TODO: Fill this in later...
 }
 
 /// @func player_state_watering(void);
 function player_state_watering()
 {
-	// TODO: Fill this in on the next commit...
+	// TODO: Fill this in later...
 }
 
 /// @func player_state_hoe(void);
 function player_state_hoe()
 {
-	// TODO: Fill this in on the next commit...
+	// TODO: Fill this in later...
 }
 
 /// @func player_state_fishing(void);
 function player_state_fishing()
 {
-	// TODO: Fill this in on the next commit...
+	// TODO: Fill this in later...
 }
 
 /// @func player_handle_collision(void);

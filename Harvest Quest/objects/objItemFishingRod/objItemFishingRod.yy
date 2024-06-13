@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprItemHoe",
-    "path":"sprites/sprItemHoe/sprItemHoe.yy",
+    "name":"sprItemFishingRod",
+    "path":"sprites/sprItemFishingRod/sprItemFishingRod.yy",
   },
   "spriteMaskId":null,
   "visible":true,

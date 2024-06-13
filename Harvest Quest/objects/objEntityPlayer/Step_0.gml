@@ -41,7 +41,7 @@ if (active)
 					// Check if the item is a sword:
 					if (_item == ItemTypes.ITEM_TYPE_SWORD)
 					{
-		
+						// TODO: Fill this in later...
 					}
 	
 					// Check if the item is a pickaxe:
@@ -57,19 +57,19 @@ if (active)
 					// Check if the item is a pickaxe:
 					if (_item == ItemTypes.ITEM_TYPE_AXE)
 					{
-		
+						// TODO: Fill this in later...
 					}
 	
 					// Check if the item is a pickaxe:
 					if (_item == ItemTypes.ITEM_TYPE_HOE)
 					{
-		
+						// TODO: Fill this in later...
 					}
 	
 					// Check if the item is a pickaxe:
 					if (_item == ItemTypes.ITEM_TYPE_WATERING_CAN)
 					{
-		
+						// TODO: Fill this in later...
 					}
 				}
 			}
