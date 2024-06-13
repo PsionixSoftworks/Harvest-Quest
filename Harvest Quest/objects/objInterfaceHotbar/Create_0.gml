@@ -1,7 +1,7 @@
 /// @description Initialize the Hotbar interface.
 // Positional variables:
-xoffset			= (camera_get_view_width(view_camera[0]) / 3) + (sprite_get_width(sprInterfaceHotbar) / 3);
-yoffset			= 320;
+xoffset			= (camera_get_view_width(view_camera[0]) / 2) - (sprite_get_width(sprInterfaceHotbar) / 2);
+yoffset			= 180 - 32;
 
 // Other variables:
 selected_slot	= 0;

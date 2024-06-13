@@ -77,6 +77,17 @@ if (active)
 	}
 }
 
+// Check if the enter key is pressed:
+if (keyboard_check_pressed(vk_enter))
+{
+	// Find the inventory:
+	var _inst = instance_find(objInterfaceInventory, 0);
+	if (instance_exists(_inst))
+	{
+		_inst.active = !_inst.active;
+	}
+}
+
 // Windows only:
 if (os_type == os_windows)
 {

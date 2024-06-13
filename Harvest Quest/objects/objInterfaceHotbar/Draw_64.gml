@@ -21,5 +21,5 @@ if (active)
 	}
 	
 	// Next, we need to draw in the cursor icon over the slots:
-	draw_sprite_ext(sprInterfaceHotbarCursor, image_index, xoffset + (selected_slot * 22) + 8, yoffset + 9, 1, 1, 0, c_white, 0.5);
+	draw_sprite_ext(sprInterfaceCursor, 0, xoffset + (selected_slot * 22) + 8, yoffset + 9, 1, 1, 0, c_white, 0.5);
 }
