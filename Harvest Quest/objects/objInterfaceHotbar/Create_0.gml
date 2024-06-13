@@ -19,4 +19,9 @@ for (var i = 0; i < slot_count; i++)
 }
 
 // Set the first slot to be the pickaxe:
-ds_list_set(slot_list, 0, ItemTypes.ITEM_TYPE_PICKAXE);
+ds_list_set(slot_list, 0, ItemTypes.ITEM_TYPE_WATERING_CAN);
+ds_list_set(slot_list, 1, ItemTypes.ITEM_TYPE_SWORD);
+ds_list_set(slot_list, 2, ItemTypes.ITEM_TYPE_PICKAXE);
+ds_list_set(slot_list, 3, ItemTypes.ITEM_TYPE_AXE);
+ds_list_set(slot_list, 4, ItemTypes.ITEM_TYPE_HOE);
+ds_list_set(slot_list, 5, ItemTypes.ITEM_TYPE_FISHING_ROD);
