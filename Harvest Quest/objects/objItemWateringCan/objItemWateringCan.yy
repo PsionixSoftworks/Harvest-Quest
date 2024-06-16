@@ -27,7 +27,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"sprItemWateringCan",
+    "path":"sprites/sprItemWateringCan/sprItemWateringCan.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprItemWateringCan",
-    "path":"sprites/sprItemWateringCan/sprItemWateringCan.yy",
+    "name":"sprItemSword",
+    "path":"sprites/sprItemSword/sprItemSword.yy",
   },
   "spriteMaskId":null,
   "visible":true,

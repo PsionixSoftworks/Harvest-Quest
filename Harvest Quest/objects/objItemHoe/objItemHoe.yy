@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprItemAxe",
-    "path":"sprites/sprItemAxe/sprItemAxe.yy",
+    "name":"sprItemHoe",
+    "path":"sprites/sprItemHoe/sprItemHoe.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprItemSword",
-    "path":"sprites/sprItemSword/sprItemSword.yy",
+    "name":"sprItemPickaxe",
+    "path":"sprites/sprItemPickaxe/sprItemPickaxe.yy",
   },
   "spriteMaskId":null,
   "visible":true,

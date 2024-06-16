@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprItemPickaxe",
-    "path":"sprites/sprItemPickaxe/sprItemPickaxe.yy",
+    "name":"sprItemAxe",
+    "path":"sprites/sprItemAxe/sprItemAxe.yy",
   },
   "spriteMaskId":null,
   "visible":true,

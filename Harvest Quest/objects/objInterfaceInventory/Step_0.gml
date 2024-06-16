@@ -20,5 +20,35 @@ if (active)
 				tab_index = i;
 			}
 		}
+		
+		// Check if we are in the inventory tab:
+		if (tab_index == 0)
+		{
+			// Iterate through the inventory slots:
+			for (var j = 0; j < inventory_slots_y; j++)
+			{
+				for (var i = 0; i < inventory_slots_x; i++)
+				{
+					// Check if the mouse or touch is over a slot:
+					if (_mx > xoffset + (i * 21) + 97 && _mx < xoffset + (i * 21) + 113 && _my > yoffset + (j * 22) + 63 && _my < yoffset + (j * 22) + 79)
+					{
+						// Store the item in a variable:
+						var _item = inventory_list[| j * inventory_slots_x + i];
+						
+						// Now check if there is an item in the slot:
+						if (_item != NULL)
+						{
+							var _inst = noone;
+							if (_item == ItemTypes.ITEM_TYPE_AXE)
+							{
+								_inst = instance_create_layer(_mx, _my, "Instances", objItemAxe);
+								grabbed_item = _inst;
+								inventory_list[| j * inventory_slots_x + i] = NULL;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }

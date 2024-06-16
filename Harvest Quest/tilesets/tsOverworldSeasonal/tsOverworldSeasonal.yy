@@ -581,7 +581,7 @@
     {"$GMTileAnimation":"","%Name":"Flower2Winter","frames":[216,217,218,219,],"name":"Flower2Winter","resourceType":"GMTileAnimation","resourceVersion":"2.0",},
     {"$GMTileAnimation":"","%Name":"LilyPad","frames":[831,832,833,834,],"name":"LilyPad","resourceType":"GMTileAnimation","resourceVersion":"2.0",},
   ],
-  "tileAnimationSpeed":15.0,
+  "tileAnimationSpeed":5.0,
   "tileHeight":16,
   "tilehsep":0,
   "tilevsep":0,
