@@ -1,4 +1,4 @@
-enum GameState
+enum GAME_STATE
 {
 	GAME_STATE_MENU,
 	GAME_STATE_PLAY,
@@ -6,7 +6,7 @@ enum GameState
 	GAME_STATE_DEATH,
 };
 
-enum PlayerState
+enum PLAYER_STATE
 {
 	PLAYER_STATE_NORMAL,
 	PLAYER_STATE_PICKAXE,
@@ -16,7 +16,7 @@ enum PlayerState
 	PLAYER_STATE_FISHING,
 }
 
-enum ItemTypes
+enum ITEM_TYPE
 {
 	ITEM_TYPE_WATERING_CAN=1,
 	ITEM_TYPE_SWORD,

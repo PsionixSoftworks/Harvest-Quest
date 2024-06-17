@@ -39,35 +39,35 @@ if (active)
 				if (device_mouse_check_button(0, mb_left))
 				{
 					// Check if the item is a sword:
-					if (_item == ItemTypes.ITEM_TYPE_SWORD)
+					if (_item == ITEM_TYPE.ITEM_TYPE_SWORD)
 					{
 						// TODO: Fill this in later...
 					}
 	
 					// Check if the item is a pickaxe:
-					if (_item == ItemTypes.ITEM_TYPE_PICKAXE)
+					if (_item == ITEM_TYPE.ITEM_TYPE_PICKAXE)
 					{
 						// Stop movement and switch to the pickaxe state:
 						xspeed = 0;
 						yspeed = 0;
 						action = "Pickaxe";
-						state = PlayerState.PLAYER_STATE_PICKAXE;
+						state = PLAYER_STATE.PLAYER_STATE_PICKAXE;
 					}
 	
 					// Check if the item is a pickaxe:
-					if (_item == ItemTypes.ITEM_TYPE_AXE)
+					if (_item == ITEM_TYPE.ITEM_TYPE_AXE)
 					{
 						// TODO: Fill this in later...
 					}
 	
 					// Check if the item is a pickaxe:
-					if (_item == ItemTypes.ITEM_TYPE_HOE)
+					if (_item == ITEM_TYPE.ITEM_TYPE_HOE)
 					{
 						// TODO: Fill this in later...
 					}
 	
 					// Check if the item is a pickaxe:
-					if (_item == ItemTypes.ITEM_TYPE_WATERING_CAN)
+					if (_item == ITEM_TYPE.ITEM_TYPE_WATERING_CAN)
 					{
 						// TODO: Fill this in later...
 					}

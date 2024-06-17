@@ -2,18 +2,18 @@
 // Setup movement variables:
 xspeed			= 0;
 yspeed			= 0;
-maxWalkSpeed	= 1;
-maxRunSpeed		= maxWalkSpeed * 2;
-spd				= maxWalkSpeed;
+max_walk_speed	= 1;
+max_run_speed	= max_walk_speed * 2;
+spd				= max_walk_speed;
 facing			= "Down";
 action			= "Walk";
 
 // Setup state machine:
-state			= PlayerState.PLAYER_STATE_NORMAL;
+state			= PLAYER_STATE.PLAYER_STATE_NORMAL;
 
 // Other variables:
 active			= false;
-alarm[0]		= room_speed / 2;
+alarm[0]		= game_get_speed(gamespeed_fps) / 2;
 image_index		= 0;
 image_speed		= 0;
 depth			= -y;

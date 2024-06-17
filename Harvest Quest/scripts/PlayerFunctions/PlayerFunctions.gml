@@ -2,27 +2,27 @@
 function player_find_state(_state)
 {
 	// Check if we're in "normal" state:
-	if (_state == PlayerState.PLAYER_STATE_NORMAL)
+	if (_state == PLAYER_STATE.PLAYER_STATE_NORMAL)
 		script_execute(player_state_normal);
 	
 	// Check if we're in "pickaxe" state:
-	if (_state == PlayerState.PLAYER_STATE_PICKAXE)
+	if (_state == PLAYER_STATE.PLAYER_STATE_PICKAXE)
 		script_execute(player_state_pickaxe);
 	
 	// Check if we're in "axe" state:
-	if (_state == PlayerState.PLAYER_STATE_AXE)
+	if (_state == PLAYER_STATE.PLAYER_STATE_AXE)
 		script_execute(player_state_axe)
 	
 	// Check if we're in "watering" state:
-	if (_state == PlayerState.PLAYER_STATE_WATERING)
+	if (_state == PLAYER_STATE.PLAYER_STATE_WATERING)
 		script_execute(player_state_watering);
 	
 	// Check if we're in "hoe" state:
-	if (_state == PlayerState.PLAYER_STATE_HOE)
+	if (_state == PLAYER_STATE.PLAYER_STATE_HOE)
 		script_execute(player_state_hoe);
 		
 	// Check if we're in "fishing" state:
-	if (_state == PlayerState.PLAYER_STATE_FISHING)
+	if (_state == PLAYER_STATE.PLAYER_STATE_FISHING)
 		script_execute(player_state_fishing);
 }
 
@@ -66,6 +66,37 @@ function player_state_normal()
 	// Reset the image index when the Player stops moving:
 	if (xspeed == 0 && yspeed == 0)
 		image_index = 0;
+	
+	// Check if the <E> (action) key is pressed:
+	if (keyboard_check_pressed(ord("E")))
+	{
+		// Check if there is an item under the player's feet:
+		var _inst1 = instance_place(x, y, objItem);
+		if (instance_exists(_inst1))
+		{
+			// So now we have to find the next available slot. So find the inventory:
+			var _inst2 = instance_find(objInterfaceInventory, 0);
+			if (instance_exists(_inst2))
+			{
+				// Iterate through the slots:
+				for (var i = 0; i < _inst2.inventory_slots_x * _inst2.inventory_slots_y; i++)
+				{
+					// Check which slot is empty:
+					if (_inst2.inventory_list[| i] == NULL)
+					{
+						// Add the item to the slot:
+						_inst2.inventory_list[| i] = _inst1.item_index;
+						
+						// Stop iterating:
+						i = _inst2.inventory_slots_y * _inst2.inventory_slots_x;
+						
+						// Destroy the item on the floor:
+						instance_destroy(_inst1);
+					}
+				}
+			}
+		}
+	}
 }
 
 /// @func player_state_sword(void);
@@ -101,7 +132,7 @@ function player_state_pickaxe()
 	}
 	
 	// Find an ore when the player is facing up:
-	var _inst = instance_place(x, y - 1, objOre);
+	_inst = instance_place(x, y - 1, objOre);
 	if (_inst != noone)
 	{
 		// Check if we're facing down:
@@ -121,7 +152,7 @@ function player_state_pickaxe()
 	}
 	
 	// Find an ore when the player is facing right:
-	var _inst = instance_place(x + 1, y, objOre);
+	_inst = instance_place(x + 1, y, objOre);
 	if (_inst != noone)
 	{
 		// Check if we're facing down:
@@ -142,7 +173,7 @@ function player_state_pickaxe()
 	}
 	
 	// Find an ore when the player is facing left:
-	var _inst = instance_place(x - 1, y, objOre);
+	_inst = instance_place(x - 1, y, objOre);
 	if (_inst != noone)
 	{
 		// Check if we're facing down:

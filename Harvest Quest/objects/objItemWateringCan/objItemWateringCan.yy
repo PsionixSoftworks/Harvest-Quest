@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"objItemWateringCan",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"objItemWateringCan",
   "overriddenProperties":[],
@@ -9,7 +11,10 @@
     "name":"Item",
     "path":"folders/Objects/Item.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"objItem",
+    "path":"objects/objItem/objItem.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

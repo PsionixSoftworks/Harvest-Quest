@@ -16,13 +16,20 @@ if (active)
 		// Check if there is a grabbed item being held: 
 		if (grabbed_item != noone)
 		{
+			
+			
 			// Set it to the mouse coords and make the original invisible (so we don't have two):
 			grabbed_item.x = _mx - 8;
 			grabbed_item.y = _my - 8;
 			grabbed_item.visible = false;
 			
 			// Then draw it at the specified coordinates:
-			draw_sprite(grabbed_item.sprite_index, image_index, grabbed_item.x, grabbed_item.y);
+			var _sprindex = inventory_get_item_icon(grabbed_item.item_index);
+			if (_sprindex != -1)
+			{
+				var _item_id = item_get_id(grabbed_item.item_index);
+				draw_sprite(_sprindex, _item_id, grabbed_item.x, grabbed_item.y);
+			}
 		}
 		
 		// Now we must iterate through each of the slots:
@@ -37,10 +44,27 @@ if (active)
 				if (_item != NULL)
 				{
 					// Get the sprite index:
-					var _sprindex = inventory_get_item_icon(_item);
+					var _sprindex	= inventory_get_item_icon(_item);
+					var _item_id	= inventory_get_item_id(_item);
 					if (_sprindex != -1)
 					{
-						draw_sprite(_sprindex, image_index, xoffset + (i * 21) + 97, yoffset + (j * 22) + 63);
+						var	_xx = xoffset + (i * 21) + 97;
+						var	_yy = yoffset + (j * 22) + 63;
+						draw_sprite(_sprindex, _item_id, _xx, _yy);
+						
+						// Check if the item is breakable:
+						if (inventory_item_is_breakable(_item))
+						{
+							// Check if it has been damaged:
+							if (_item.durability < _item.durability_max)
+							{
+								// Get the healthbar percent:
+								var _percent = (_item.durability / _item.durability_max) * 100;
+								
+								// Draw a healthbar over the item:
+								draw_healthbar(_xx + 1, _yy + 12, _xx + 14, _yy + 13, _percent, c_black, c_red, c_green, 0, true, false);
+							}
+						}
 					}
 				}
 				

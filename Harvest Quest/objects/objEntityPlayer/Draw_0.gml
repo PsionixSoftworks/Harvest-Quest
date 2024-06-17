@@ -3,7 +3,7 @@
 draw_self();
 
 // Draw the pickaxe sprite when using it in the state:
-if (state == PlayerState.PLAYER_STATE_PICKAXE)
+if (state == PLAYER_STATE.PLAYER_STATE_PICKAXE)
 {
 	var _sprindex = asset_get_index("sprPickaxeWood" + string(facing));
 	draw_sprite(_sprindex, image_index, x, y);

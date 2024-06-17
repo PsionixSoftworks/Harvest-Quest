@@ -8,7 +8,7 @@ if (hit)
 	}
 	else
 	{
-		hit_timer	= room_speed / 10;
+		hit_timer	= game_get_speed(gamespeed_fps) / 10;
 		hit			= false;
 		xoffset		= 0;
 		yoffset		= 0;
