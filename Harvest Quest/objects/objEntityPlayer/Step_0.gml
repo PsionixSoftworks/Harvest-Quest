@@ -14,7 +14,7 @@ if (active)
 	
 	// Next, we need to handle the hotbar. Let's see if it's in the world:
 	var _inst;
-		_inst = instance_find(objInterfaceHotbar, 0);
+		_inst = instance_find(objInterfaceInventory, 0);
 	if (!instance_exists(_inst))
 	{
 		// Handle the error:
@@ -24,13 +24,13 @@ if (active)
 	else
 	{
 		// Since it can be found, let's find the size of the hotbar:
-		var _size = ds_list_size(_inst.slot_list);
+		var _size = ds_list_size(_inst.hotbar_slots);
 		
 		//Next, iterate through the hotbar slots:
 		for (var i = 0; i < _size; i++)
 		{
 			// Check what item exists at the hotbar slot:
-			var _item = _inst.slot_list[| _inst.selected_slot];
+			var _item = _inst.hotbar_slots[| _inst.selected_slot];
 			
 			// Check if the slot has an item in it:
 			if (_item != NULL)
@@ -93,13 +93,13 @@ if (os_type == os_windows)
 {
 	// Find the hotbar (again...):
 	var _inst;
-		_inst = instance_find(objInterfaceHotbar, 0);
+		_inst = instance_find(objInterfaceInventory, 0);
 	if (instance_exists(_inst))
 	{
 		// Check if the user is scrolling the mouse wheel down:
 		if (mouse_wheel_down())
 		{
-			if (_inst.selected_slot < _inst.slot_count - 1)
+			if (_inst.selected_slot < _inst.hotbar_slot_count - 1)
 				_inst.selected_slot++;
 			else
 				_inst.selected_slot = 0;
@@ -109,7 +109,7 @@ if (os_type == os_windows)
 			if (_inst.selected_slot > 0)
 				_inst.selected_slot--;
 			else
-				_inst.selected_slot = _inst.slot_count - 1;
+				_inst.selected_slot = _inst.hotbar_slot_count - 1;
 		}
 	}
 }

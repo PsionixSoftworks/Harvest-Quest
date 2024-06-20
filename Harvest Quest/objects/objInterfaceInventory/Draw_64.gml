@@ -16,8 +16,6 @@ if (active)
 		// Check if there is a grabbed item being held: 
 		if (grabbed_item != noone)
 		{
-			
-			
 			// Set it to the mouse coords and make the original invisible (so we don't have two):
 			grabbed_item.x = _mx - 8;
 			grabbed_item.y = _my - 8;
@@ -38,7 +36,7 @@ if (active)
 			for (var i = 0; i < inventory_slots_x; i++)
 			{
 				// Get the item index:
-				var _item = inventory_list[| j * inventory_slots_x + i];
+				var _item = inventory_slots[| j * inventory_slots_x + i];
 				
 				// Check if an item exists in the inventory slots:
 				if (_item != NULL)
@@ -75,6 +73,26 @@ if (active)
 					draw_sprite_ext(sprInterfaceCursor, 1, xoffset + (i * 21) + 97, yoffset + (j * 22) + 63, 1, 1, 0, c_white, 0.5);
 				}
 			}
+		}
+	}
+}
+
+// Find the hotbar instance:
+var _inst = instance_find(objInterfaceHotbar, 0);
+if (!instance_exists(_inst))
+	return;
+
+// The hotbar needs to be rendered regardless of the inventory's active flag. All items in it will need to be rendered:
+for (var i = 0; i < hotbar_slot_count; i++)
+{
+	// Next, we need to check what is in each slot. It should be non-null:
+	var _item = ds_list_find_value(hotbar_slots, i);
+	if (_item != NULL)
+	{
+		var _sprindex = hotbar_get_item_icon(_item);
+		if (_sprindex != -1)
+		{
+			draw_sprite_ext(_sprindex, 0, _inst.xoffset + (i * 22) + 8, _inst.yoffset + 9, 1, 1, 0, c_white, 1.0);
 		}
 	}
 }

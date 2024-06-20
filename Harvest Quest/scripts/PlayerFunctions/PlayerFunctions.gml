@@ -82,10 +82,10 @@ function player_state_normal()
 				for (var i = 0; i < _inst2.inventory_slots_x * _inst2.inventory_slots_y; i++)
 				{
 					// Check which slot is empty:
-					if (_inst2.inventory_list[| i] == NULL)
+					if (_inst2.inventory_slots[| i] == NULL)
 					{
 						// Add the item to the slot:
-						_inst2.inventory_list[| i] = _inst1.item_index;
+						_inst2.inventory_slots[| i] = _inst1.item_index;
 						
 						// Stop iterating:
 						i = _inst2.inventory_slots_y * _inst2.inventory_slots_x;
