@@ -1,6 +1,6 @@
 /// @description Trigger animation end
 // check what state we were last in:
-if (state == PLAYER_STATE.PLAYER_STATE_PICKAXE)
+if (state != PLAYER_STATE.PLAYER_STATE_NORMAL)
 {
 	image_index = 0;
 	image_speed = 0;

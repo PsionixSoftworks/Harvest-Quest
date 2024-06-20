@@ -162,7 +162,11 @@ function player_state_normal()
 						// Check if the item is a pickaxe:
 						if (_item.item_type == ITEM_TYPE.ITEM_TYPE_AXE)
 						{
-							// TODO: Fill this in later...
+							// Stop movement and switch to the axe state:
+							xspeed = 0;
+							yspeed = 0;
+							action = "Axe";
+							state = PLAYER_STATE.PLAYER_STATE_AXE;
 						}
 	
 						// Check if the item is a pickaxe:
@@ -281,7 +285,8 @@ function player_state_pickaxe()
 /// @func player_state_axe(void);
 function player_state_axe()
 {
-	// TODO: Fill this in later...
+	sprite_index = asset_get_index("sprChar1Axe" + string(facing));
+	image_speed = 1;
 }
 
 /// @func player_state_watering(void);

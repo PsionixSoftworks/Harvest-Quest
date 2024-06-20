@@ -8,3 +8,8 @@ if (state == PLAYER_STATE.PLAYER_STATE_PICKAXE)
 	var _sprindex = asset_get_index("sprPickaxeWood" + string(facing));
 	draw_sprite(_sprindex, image_index, x, y);
 }
+else if (state == PLAYER_STATE.PLAYER_STATE_AXE)
+{
+	var _sprindex = asset_get_index("sprAxeWood" + string(facing));
+	draw_sprite(_sprindex, image_index, x, y);
+}
