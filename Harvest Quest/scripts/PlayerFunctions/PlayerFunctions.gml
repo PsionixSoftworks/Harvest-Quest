@@ -97,6 +97,90 @@ function player_state_normal()
 			}
 		}
 	}
+	
+	// Next, we need to handle the inventory. Let's see if it's in the world:
+	var _inst;
+		_inst = instance_find(objInterfaceInventory, 0);
+	if (!instance_exists(_inst))
+	{
+		// Handle the error:
+		_inst = instance_create_layer(0, 0, "Instances", objInterfaceInventory);
+		show_debug_message("[Warning]: The inventory could not be found. Creating instead...");
+	}
+	else
+	{
+		// Since it can be found, let's find the size of the hotbar:
+		var _size = ds_list_size(_inst.hotbar_slots);
+		
+		//Next, iterate through the hotbar slots:
+		for (var i = 0; i < _size; i++)
+		{
+			// Check what item exists at the hotbar slot:
+			var _item = _inst.hotbar_slots[| _inst.selected_slot];
+			
+			// Check if the slot has an item in it:
+			if (_item != NULL)
+			{
+				// Listen for left mouse click:
+				if (device_mouse_check_button(0, mb_left))
+				{
+					// Find the hotbar:
+					var _hotbar = instance_find(objInterfaceHotbar, 0);
+					if (_hotbar == noone)
+						return;
+					
+					// Get mouse positions:
+					var _mx, _my;
+						_mx = device_mouse_x_to_gui(0);
+						_my = device_mouse_y_to_gui(0);
+					
+					// We need to make sure the mouse isn't over the hotbar when we click
+					// so hotbar slots can be selected with the mouse or touch:
+					if (_mx > _hotbar.xoffset && _mx < _hotbar.xoffset + 208 && _my > _hotbar.yoffset)
+					{
+						// But we don't handle that here, so just return:
+						return;
+					}
+					else
+					{
+						// Check if the item is a sword:
+						if (_item.item_type == ITEM_TYPE.ITEM_TYPE_SWORD)
+						{
+							// TODO: Fill this in later...
+						}
+	
+						// Check if the item is a pickaxe:
+						if (_item.item_type == ITEM_TYPE.ITEM_TYPE_PICKAXE)
+						{
+							// Stop movement and switch to the pickaxe state:
+							xspeed = 0;
+							yspeed = 0;
+							action = "Pickaxe";
+							state = PLAYER_STATE.PLAYER_STATE_PICKAXE;
+						}
+	
+						// Check if the item is a pickaxe:
+						if (_item.item_type == ITEM_TYPE.ITEM_TYPE_AXE)
+						{
+							// TODO: Fill this in later...
+						}
+	
+						// Check if the item is a pickaxe:
+						if (_item.item_type == ITEM_TYPE.ITEM_TYPE_HOE)
+						{
+							// TODO: Fill this in later...
+						}
+	
+						// Check if the item is a pickaxe:
+						if (_item.item_type == ITEM_TYPE.ITEM_TYPE_WATERING_CAN)
+						{
+							// TODO: Fill this in later...
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 /// @func player_state_sword(void);

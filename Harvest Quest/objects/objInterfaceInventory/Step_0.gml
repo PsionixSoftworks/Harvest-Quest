@@ -95,6 +95,7 @@ if (active)
 					}
 				}
 			}
+			
 			// Now we must handle the hotbar. Iterate through the slots:
 			for (var i = 0; i < hotbar_slot_count; i++)
 			{
@@ -105,7 +106,7 @@ if (active)
 				
 				// Check if the mouse cursor is over a slot:
 				if (_mx > _inst1.xoffset + (i * 21) + 8 && _mx < _inst1.xoffset + (i * 21) + 23 && _my > _inst1.yoffset + 9 && _my < _inst1.yoffset + 24)
-				{
+				{					
 					// Store the item in a variable:
 					var _item = hotbar_slots[| i];
 				
@@ -216,6 +217,33 @@ if (active)
 						}
 					}
 				}
+			}
+		}
+	}
+}
+else
+{
+	// Find the hotbar instance:
+	var _inst = instance_find(objInterfaceHotbar, 0);
+	if (!instance_exists(_inst))
+		return;
+	
+	// Check if the left mouse button is pressed on a hotbar slot (only if the inventory is hidden):
+	if (device_mouse_check_button_pressed(0, mb_left))
+	{
+		// Get the mouse position on the GUI layer:
+		var _mx, _my;
+			_mx = device_mouse_x_to_gui(0);
+			_my = device_mouse_y_to_gui(0);
+		
+		// Now, iterate through the slots as we did before:
+		for (var i = 0; i < 9; i++)
+		{
+			// We need to check if the item is over a slot, so let's get the mouse coords:
+			if (_mx > _inst.xoffset + (i * 22) + 8 && _mx < _inst.xoffset + (i * 22) + 24 && _my > _inst.yoffset + 9 && _my < _inst.yoffset + 24)
+			{
+				// Select the slot:
+				selected_slot = i;
 			}
 		}
 	}
