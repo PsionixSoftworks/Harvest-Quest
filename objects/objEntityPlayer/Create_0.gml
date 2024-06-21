@@ -13,6 +13,7 @@ state			= PLAYER_STATE.PLAYER_STATE_NORMAL;
 
 // Other variables:
 active			= false;
+lmb_released	= true;
 alarm[0]		= game_get_speed(gamespeed_fps) / 2;
 image_index		= 0;
 image_speed		= 0;

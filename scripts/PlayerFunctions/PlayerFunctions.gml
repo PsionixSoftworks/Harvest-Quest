@@ -172,15 +172,42 @@ function player_state_normal()
 						// Check if the item is a pickaxe:
 						if (_item.item_type == ITEM_TYPE.ITEM_TYPE_HOE)
 						{
-							// TODO: Fill this in later...
+							// We want to check if the left mouse button (or touch) is released
+							// for this item. Otherwise it will spam when you hold it like the axe
+							// and pickaxe:
+							if (lmb_released)
+							{
+								// Stop movement and switch to the hoe state:
+								xspeed = 0;
+								yspeed = 0;
+								action = "Hoe";
+								state = PLAYER_STATE.PLAYER_STATE_HOE;
+								lmb_released = false;
+							}
 						}
 	
 						// Check if the item is a pickaxe:
 						if (_item.item_type == ITEM_TYPE.ITEM_TYPE_WATERING_CAN)
 						{
-							// TODO: Fill this in later...
+							// We want to check if the left mouse button (or touch) is released
+							// for this item. Otherwise it will spam when you hold it like the axe
+							// and pickaxe:
+							if (lmb_released)
+							{
+								// Stop movement and switch to the watering state:
+								xspeed = 0;
+								yspeed = 0;
+								action = "Watering";
+								state = PLAYER_STATE.PLAYER_STATE_WATERING;
+								lmb_released = false;
+							}
 						}
 					}
+				}
+				else if (device_mouse_check_button_released(0, mb_left))
+				{
+					// The mouse (or touch) was released:
+					lmb_released = true;
 				}
 			}
 		}
@@ -371,13 +398,15 @@ function player_state_axe()
 /// @func player_state_watering(void);
 function player_state_watering()
 {
-	// TODO: Fill this in later...
+	sprite_index = asset_get_index("sprChar1Watering" + string(facing));
+	image_speed = 1;
 }
 
 /// @func player_state_hoe(void);
 function player_state_hoe()
 {
-	// TODO: Fill this in later...
+	sprite_index = asset_get_index("sprChar1Hoe" + string(facing));
+	image_speed = 1;
 }
 
 /// @func player_state_fishing(void);
