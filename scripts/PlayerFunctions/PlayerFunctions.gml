@@ -287,6 +287,85 @@ function player_state_axe()
 {
 	sprite_index = asset_get_index("sprChar1Axe" + string(facing));
 	image_speed = 1;
+	
+	// Set this here for code consistency:
+	var _inst = noone;
+	
+	// Find a tree when the player is facing down:
+	_inst = instance_place(x, y + 1, objTree);
+	if (_inst != noone && _inst.can_be_harvested)
+	{
+		// Check if we're facing down:
+		if (facing == "Down")
+		{
+			// Hit the tree each time the player's subimaage reaches the end:
+			if (image_index >= image_number - 1)
+			{
+				if (!_inst.hit && !_inst.harvested)
+				{
+					_inst.hp--;
+					_inst.hit = true;
+				}
+			}
+		}
+	}
+	
+	// Find a tree when the player is facing up:
+	_inst = instance_place(x, y - 1, objTree);
+	if (_inst != noone && _inst.can_be_harvested)
+	{
+		// Check if we're facing up:
+		if (facing == "Up")
+		{
+			// Hit the tree each time the player's subimaage reaches the end:
+			if (image_index >= image_number - 1)
+			{
+				if (!_inst.hit && !_inst.harvested)
+				{
+					_inst.hp--;
+					_inst.hit = true;
+				}
+			}
+		}
+	}
+	
+	// Find a tree when the player is facing right:
+	_inst = instance_place(x + 1, y, objTree);
+	if (_inst != noone && _inst.can_be_harvested)
+	{
+		// Check if we're facing right:
+		if (facing == "Right")
+		{
+			// Hit the tree each time the player's subimaage reaches the end:
+			if (image_index >= image_number - 1)
+			{
+				if (!_inst.hit && !_inst.harvested)
+				{
+					_inst.hp--;
+					_inst.hit = true;
+				}
+			}
+		}
+	}
+	
+	// Find a tree when the player is facing left:
+	_inst = instance_place(x - 1, y, objTree);
+	if (_inst != noone && _inst.can_be_harvested)
+	{
+		// Check if we're facing left:
+		if (facing == "Left")
+		{
+			// Hit the tree each time the player's subimaage reaches the end:
+			if (image_index >= image_number - 1)
+			{
+				if (!_inst.hit && !_inst.harvested)
+				{
+					_inst.hp--;
+					_inst.hit = true;
+				}
+			}
+		}
+	}
 }
 
 /// @func player_state_watering(void);
