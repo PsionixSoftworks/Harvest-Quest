@@ -1,9 +1,9 @@
 {
   "$GMScript":"",
-  "%Name":"InerfaceFunctions",
+  "%Name":"InterfaceFunctions",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"InerfaceFunctions",
+  "name":"InterfaceFunctions",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",
