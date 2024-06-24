@@ -1,15 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"objItemWateringCan",
+  "%Name":"objItemCrop",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"objItemWateringCan",
+  "name":"objItemCrop",
   "overriddenProperties":[],
   "parent":{
-    "name":"Tools",
-    "path":"folders/Objects/Item/Tools.yy",
+    "name":"Crops",
+    "path":"folders/Objects/Item/Crops.yy",
   },
   "parentObjectId":{
     "name":"objItem",
@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprItemWateringCan",
-    "path":"sprites/sprItemWateringCan/sprItemWateringCan.yy",
+    "name":"sprItemCrop",
+    "path":"sprites/sprItemCrop/sprItemCrop.yy",
   },
   "spriteMaskId":null,
   "visible":true,

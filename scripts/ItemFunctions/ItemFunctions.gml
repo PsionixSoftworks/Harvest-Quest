@@ -3,7 +3,9 @@ function Item(_name, _id, _type) constructor
 	item_name		= _name;
 	item_id			= _id;
 	item_type		= _type;
+	item_count		= 1;
 	breakable		= false;
+	stackable		= false;
 }
 
 function ItemSword(_name, _id, _type, _damage, _hp, _hp_max) : Item(_name, _id, _type) constructor
@@ -43,11 +45,23 @@ function ItemWateringCan(_name, _id, _type, _water_amt, _water_amt_max) : Item(_
 	durability_max	= _water_amt_max;
 }
 
-function  ItemFishingRod(_name, _id, _type, _hp, _hp_max) : Item(_name, _id, _type) constructor
+function ItemFishingRod(_name, _id, _type, _hp, _hp_max) : Item(_name, _id, _type) constructor
 {
 	durability		= _hp;
 	durability_max	= _hp_max;
 	breakable		= true;
+}
+
+function ItemSeeds(_name, _id, _type, _count=1) : Item(_name, _id, _type) constructor
+{
+	item_count		= _count;
+	stackable		= true;
+}
+
+function ItemCrop(_name, _id, _type, _count=1) : Item(_name, _id, _type) constructor
+{
+	item_count		= _count;
+	stackable		= true;
 }
 
 function item_get_name(_item)
@@ -92,9 +106,23 @@ function item_get_durabilty_max(_item)
 	return -1;
 }
 
+function item_get_count(_item)
+{
+	if (_item != undefined)
+		return _item.item_count;
+	return 0;
+}
+
 function item_is_breakable(_item)
 {
 	if (_item != undefined)
 		return _item.breakable;
+	return false;
+}
+
+function item_is_stackable(_item)
+{
+	if (_item != undefined)
+		return _item.stackable;
 	return false;
 }

@@ -91,6 +91,22 @@ if (active)
 								last_inventory_slot		= _idx;
 								last_hotbar_slot		= -1;
 							}
+							else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_SEEDS)
+							{
+								_inst = instance_create_layer(mouse_x, mouse_y, "Instances", objItemSeed);
+								grabbed_item			= _inst;
+								inventory_slots[| _idx] = NULL;
+								last_inventory_slot		= _idx;
+								last_hotbar_slot		= -1;
+							}
+							else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_CROPS)
+							{
+								_inst = instance_create_layer(mouse_x, mouse_y, "Instances", objItemCrop);
+								grabbed_item			= _inst;
+								inventory_slots[| _idx]	= NULL;
+								last_inventory_slot		= _idx;
+								last_hotbar_slot		= -1;
+							}
 						}
 					}
 				}

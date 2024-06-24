@@ -8,8 +8,8 @@
   "name":"objItemHoe",
   "overriddenProperties":[],
   "parent":{
-    "name":"Item",
-    "path":"folders/Objects/Item.yy",
+    "name":"Tools",
+    "path":"folders/Objects/Item/Tools.yy",
   },
   "parentObjectId":{
     "name":"objItem",
