@@ -81,3 +81,8 @@ function hotbar_is_item_stackable(_item)
 		return _item.stackable;
 	return false;
 }
+
+function hotbar_clear_slot(_slot)
+{
+	hotbar_slots[| _slot] = NULL;
+}

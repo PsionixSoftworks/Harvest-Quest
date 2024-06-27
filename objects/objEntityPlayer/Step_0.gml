@@ -21,6 +21,7 @@ if (keyboard_check_pressed(vk_enter))
 	if (instance_exists(_inst))
 	{
 		_inst.active = !_inst.active;
+		active = !_inst.active;
 	}
 }
 

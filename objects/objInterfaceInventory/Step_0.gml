@@ -317,3 +317,25 @@ else
 		}
 	}
 }
+
+// Check if the item is breakable:
+if (hotbar_is_item_breakable(hotbar_slots[| selected_slot]))
+{
+	// Check if the item has run out in the selected slot:
+	if (hotbar_get_item_durability(hotbar_slots[| selected_slot]) <= 0)
+	{
+		// If so, clear it:
+		hotbar_clear_slot(selected_slot);
+	}
+}
+	
+// Check if the item is stackable:
+if (hotbar_is_item_stackable(hotbar_slots[| selected_slot]))
+{
+	// Check if the item stack is empty:
+	if (hotbar_get_item_count(hotbar_slots[| selected_slot]) <= 0)
+	{
+		// If so, clear it:
+		hotbar_clear_slot(selected_slot);
+	}
+}

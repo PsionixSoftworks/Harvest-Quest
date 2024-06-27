@@ -159,7 +159,7 @@ function player_state_normal()
 							state = PLAYER_STATE.PLAYER_STATE_PICKAXE;
 						}
 	
-						// Check if the item is a pickaxe:
+						// Check if the item is an axe:
 						if (_item.item_type == ITEM_TYPE.ITEM_TYPE_AXE)
 						{
 							// Stop movement and switch to the axe state:
@@ -169,7 +169,7 @@ function player_state_normal()
 							state = PLAYER_STATE.PLAYER_STATE_AXE;
 						}
 	
-						// Check if the item is a pickaxe:
+						// Check if the item is a hoe:
 						if (_item.item_type == ITEM_TYPE.ITEM_TYPE_HOE)
 						{
 							// We want to check if the left mouse button (or touch) is released
@@ -186,7 +186,7 @@ function player_state_normal()
 							}
 						}
 	
-						// Check if the item is a pickaxe:
+						// Check if the item is a watering can:
 						if (_item.item_type == ITEM_TYPE.ITEM_TYPE_WATERING_CAN)
 						{
 							// We want to check if the left mouse button (or touch) is released
@@ -199,6 +199,42 @@ function player_state_normal()
 								yspeed = 0;
 								action = "Watering";
 								state = PLAYER_STATE.PLAYER_STATE_WATERING;
+								lmb_released = false;
+							}
+						}
+						
+						// Check if the item is a seed packet:
+						if (_item.item_type == ITEM_TYPE.ITEM_TYPE_SEEDS)
+						{
+							// We want to check if the left mouse button (or touch) is released
+							// for this item. Otherwise it will spam when you hold it like the axe
+							// and pickaxe:
+							if (lmb_released)
+							{
+								// Plant a seed wherever the mouse it and decrement one from the count:
+								if (hotbar_get_item_id(_item) == 0)
+									instance_create_layer(mouse_x, mouse_y, "Instances", objCropCarrot);
+								else if (hotbar_get_item_id(_item) == 1)
+									instance_create_layer(mouse_x, mouse_y, "Instances", objCropTomato);
+								else if (hotbar_get_item_id(_item) == 2)
+									instance_create_layer(mouse_x, mouse_y, "Instances", objCropStrawberry);
+								else if (hotbar_get_item_id(_item) == 3)
+									instance_create_layer(mouse_x, mouse_y, "Instances", objCropPumpkin);
+								else if (hotbar_get_item_id(_item) == 4)
+									instance_create_layer(mouse_x, mouse_y, "Instances", objCropCorn);
+								else if (hotbar_get_item_id(_item) == 5)
+									instance_create_layer(mouse_x, mouse_y, "Instances", objCropPotato);
+								else if (hotbar_get_item_id(_item) == 6)
+									instance_create_layer(mouse_x, mouse_y, "Instances", objCropWatermelon);
+								else if (hotbar_get_item_id(_item) == 7)
+									instance_create_layer(mouse_x, mouse_y, "Instances", objCropRadish);
+								else if (hotbar_get_item_id(_item) == 8)
+									instance_create_layer(mouse_x, mouse_y, "Instances", objCropLettuce);
+								else if (hotbar_get_item_id(_item) == 9)
+									instance_create_layer(mouse_x, mouse_y, "Instances", objCropWheat);
+								else if (hotbar_get_item_id(_item) == 10)
+									instance_create_layer(mouse_x, mouse_y, "Instances", objCropEggplant);
+								_item.item_count--;
 								lmb_released = false;
 							}
 						}
