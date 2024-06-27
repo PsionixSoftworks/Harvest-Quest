@@ -86,13 +86,14 @@ if (!instance_exists(_inst))
 for (var i = 0; i < hotbar_slot_count; i++)
 {
 	// Next, we need to check what is in each slot. It should be non-null:
-	var _item = ds_list_find_value(hotbar_slots, i);
+	var _item = hotbar_slots[| i];
 	if (_item != NULL)
 	{
 		var _sprindex = hotbar_get_item_icon(_item);
 		if (_sprindex != -1)
 		{
-			draw_sprite_ext(_sprindex, 0, _inst.xoffset + (i * 22) + 8, _inst.yoffset + 9, 1, 1, 0, c_white, 1.0);
+			var _item_id = hotbar_get_item_id(_item);
+			draw_sprite_ext(_sprindex, _item_id, _inst.xoffset + (i * 22) + 8, _inst.yoffset + 9, 1, 1, 0, c_white, 1.0);
 		}
 	}
 }

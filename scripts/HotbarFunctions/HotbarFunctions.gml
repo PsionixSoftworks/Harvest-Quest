@@ -12,5 +12,16 @@ function hotbar_get_item_icon(_item)
 		return sprItemWateringCan;
 	if (_item.item_type == ITEM_TYPE.ITEM_TYPE_FISHING_ROD)
 		return sprItemFishingRod;
+	if (_item.item_type == ITEM_TYPE.ITEM_TYPE_SEEDS)
+		return sprItemSeedCrop;
+	if (_item.item_type == ITEM_TYPE.ITEM_TYPE_CROPS)
+		return sprItemCrop;
+	return -1;
+}
+
+function hotbar_get_item_id(_item)
+{
+	if (_item != NULL)
+		return _item.item_id;
 	return -1;
 }

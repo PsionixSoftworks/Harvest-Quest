@@ -1,9 +1,7 @@
 /// @description Update the inventory system
 // Check if active:
 if (active)
-{
-	show_debug_message("last_hotbar_slot: " + string(last_hotbar_slot));
-	
+{	
 	// If so, we need to get the mouse position on the GUI layer:
 	var _mx, _my;
 		_mx = device_mouse_x_to_gui(0);
@@ -46,6 +44,7 @@ if (active)
 							if (_item.item_type == ITEM_TYPE.ITEM_TYPE_SWORD)
 							{
 								_inst = instance_create_layer(mouse_x, mouse_y, "Instances", objItemSword);
+								_inst.item_index		= _item;
 								grabbed_item			= _inst;
 								inventory_slots[| _idx] = NULL;
 								last_inventory_slot		= _idx;
@@ -54,6 +53,7 @@ if (active)
 							else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_PICKAXE)
 							{
 								_inst = instance_create_layer(mouse_x, mouse_y, "Instances", objItemPickaxe);
+								_inst.item_index		= _item;
 								grabbed_item			= _inst;
 								inventory_slots[| _idx] = NULL;
 								last_inventory_slot		= _idx;
@@ -62,6 +62,7 @@ if (active)
 							else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_AXE)
 							{
 								_inst = instance_create_layer(mouse_x, mouse_y, "Instances", objItemAxe);
+								_inst.item_index		= _item;
 								grabbed_item			= _inst;
 								inventory_slots[| _idx] = NULL;
 								last_inventory_slot		= _idx;
@@ -70,6 +71,7 @@ if (active)
 							else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_HOE)
 							{
 								_inst = instance_create_layer(mouse_x, mouse_y, "Instances", objItemHoe);
+								_inst.item_index		= _item;
 								grabbed_item			= _inst;
 								inventory_slots[| _idx] = NULL;
 								last_inventory_slot		= _idx;
@@ -78,6 +80,7 @@ if (active)
 							else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_WATERING_CAN)
 							{
 								_inst = instance_create_layer(mouse_x, mouse_y, "Instances", objItemWateringCan);
+								_inst.item_index		= _item;
 								grabbed_item			= _inst;
 								inventory_slots[| _idx] = NULL;
 								last_inventory_slot		= _idx;
@@ -86,6 +89,7 @@ if (active)
 							else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_FISHING_ROD)
 							{
 								_inst = instance_create_layer(mouse_x, mouse_y, "Instances", objItemFishingRod);
+								_inst.item_index		= _item;
 								grabbed_item			= _inst;
 								inventory_slots[| _idx] = NULL;
 								last_inventory_slot		= _idx;
@@ -94,6 +98,7 @@ if (active)
 							else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_SEEDS)
 							{
 								_inst = instance_create_layer(mouse_x, mouse_y, "Instances", objItemSeed);
+								_inst.item_index		= _item;
 								grabbed_item			= _inst;
 								inventory_slots[| _idx] = NULL;
 								last_inventory_slot		= _idx;
@@ -102,6 +107,7 @@ if (active)
 							else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_CROPS)
 							{
 								_inst = instance_create_layer(mouse_x, mouse_y, "Instances", objItemCrop);
+								_inst.item_index		= _item;
 								grabbed_item			= _inst;
 								inventory_slots[| _idx]	= NULL;
 								last_inventory_slot		= _idx;
@@ -121,7 +127,7 @@ if (active)
 					return;
 				
 				// Check if the mouse cursor is over a slot:
-				if (_mx > _inst1.xoffset + (i * 21) + 8 && _mx < _inst1.xoffset + (i * 21) + 23 && _my > _inst1.yoffset + 9 && _my < _inst1.yoffset + 24)
+				if (_mx > _inst1.xoffset + (i * 22) + 8 && _mx < _inst1.xoffset + (i * 22) + 23 && _my > _inst1.yoffset + 9 && _my < _inst1.yoffset + 24)
 				{					
 					// Store the item in a variable:
 					var _item = hotbar_slots[| i];
@@ -133,18 +139,65 @@ if (active)
 						if (_item.item_type == ITEM_TYPE.ITEM_TYPE_SWORD)
 						{
 							_inst2 = instance_create_layer(mouse_x, mouse_y, "Instances", objItemSword);
-							grabbed_item		= _inst2;
-							hotbar_slots[| i]	= NULL;
-							last_hotbar_slot	= i;
-							last_inventory_slot = -1;
+							_inst2.item_index			= _item;
+							grabbed_item				= _inst2;
+							hotbar_slots[| i]			= NULL;
+							last_hotbar_slot			= i;
+							last_inventory_slot			= -1;
 						}
 						else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_PICKAXE)
 						{
 							_inst2 = instance_create_layer(mouse_x, mouse_y, "Instances", objItemPickaxe);
-							grabbed_item		= _inst2;
-							hotbar_slots[| i]	= NULL;
-							last_hotbar_slot	= i;
-							last_inventory_slot = -1;
+							_inst2.item_index			= _item;
+							grabbed_item				= _inst2;
+							hotbar_slots[| i]			= NULL;
+							last_hotbar_slot			= i;
+							last_inventory_slot			= -1;
+						}
+						else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_AXE)
+						{
+							_inst2 = instance_create_layer(mouse_x, mouse_y, "Instances", objItemAxe);
+							_inst2.item_index			= _item;
+							grabbed_item				= _inst2;
+							hotbar_slots[| i]			= NULL;
+							last_hotbar_slot			= i;
+							last_inventory_slot			= -1;
+						}
+						else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_HOE)
+						{
+							_inst2 = instance_create_layer(mouse_x, mouse_y, "Instances", objItemHoe);
+							_inst2.item_index			= _item;
+							grabbed_item				= _inst2;
+							hotbar_slots[| i]			= NULL;
+							last_hotbar_slot			= i;
+							last_inventory_slot			= -1;
+						}
+						else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_FISHING_ROD)
+						{
+							_inst2 = instance_create_layer(mouse_x, mouse_y, "Instances", objItemFishingRod);
+							_inst2.item_index			= _item;
+							grabbed_item				= _inst2;
+							hotbar_slots[| i]			= NULL;
+							last_hotbar_slot			= i;
+							last_inventory_slot			= -1;
+						}
+						else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_SEEDS)
+						{
+							_inst2 = instance_create_layer(mouse_x, mouse_y, "Instances", objItemSeed);
+							_inst2.item_index			= _item;
+							grabbed_item				= _inst2;
+							hotbar_slots[| i]			= NULL;
+							last_hotbar_slot			= i;
+							last_inventory_slot			= -1;
+						}
+						else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_CROPS)
+						{
+							_inst2 = instance_create_layer(mouse_x, mouse_y, "Instances", objItemCrop);
+							_inst2.item_index			= _item;
+							grabbed_item				= _inst2;
+							hotbar_slots[| i]			= NULL;
+							last_hotbar_slot			= i;
+							last_inventory_slot			= -1;
 						}
 					}
 				}
@@ -205,7 +258,7 @@ if (active)
 				if (grabbed_item != noone)
 				{
 					// We need to check if the item is over a slot, so let's get the mouse coords:
-					if (_mx > _inst.xoffset + (i * 21) + 8 && _mx < _inst.xoffset + (i * 21) + 23 && _my > _inst.yoffset + 9 && _mx < _inst.yoffset + 24)
+					if (_mx > _inst.xoffset + (i * 22) + 8 && _mx < _inst.xoffset + (i * 22) + 23 && _my > _inst.yoffset + 9 && _my < _inst.yoffset + 24)
 					{
 						// Check if there is an item already in the slot:
 						if (hotbar_slots[| i] == NULL)
