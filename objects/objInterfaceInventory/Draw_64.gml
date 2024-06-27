@@ -27,6 +27,46 @@ if (active)
 			{
 				var _item_id = item_get_id(grabbed_item.item_index);
 				draw_sprite(_sprindex, _item_id, grabbed_item.x, grabbed_item.y);
+				
+				// Check if the item is breakable:
+				if (item_is_breakable(grabbed_item.item_index))
+				{
+					// Get the item durability:
+					var _hp, _hp_max;
+						_hp		= item_get_durability(grabbed_item.item_index);
+						_hp_max	= item_get_durabilty_max(grabbed_item.item_index);
+					
+					// Check if the item is damaged:
+					if (_hp < _hp_max)
+					{
+						// Get the damage percentage:
+						var _dmg = (_hp / _hp_max) * 100;
+			
+						// Get the min and max colors:
+						var _mincol, _maxcol;
+							_mincol = (grabbed_item.item_index.item_type == ITEM_TYPE.ITEM_TYPE_WATERING_CAN) ? $FF7F00 : c_red;
+							_maxcol = (grabbed_item.item_index.item_type == ITEM_TYPE.ITEM_TYPE_WATERING_CAN) ? $FF7F00 : c_green;
+			
+						// Draw the healthbar over the item:
+						draw_healthbar(grabbed_item.x + 1, grabbed_item.y + 12, grabbed_item.x + 14, grabbed_item.y + 13, _dmg, c_black, _mincol, _maxcol, 0, true, false);
+					}
+				}
+				
+				// Check if the item is stackable:
+				if (item_is_stackable(grabbed_item.item_index))
+				{
+					// Get the item count:
+					var _item_count	= item_get_count(grabbed_item.item_index);
+		
+					// Check if the count is larger than 1:
+					if (_item_count > 1)
+					{
+						// Draw a little number over the item to indicate how many there are:
+						draw_set_halign(fa_center);
+						draw_text_shadowed(grabbed_item.x + 12, grabbed_item.y + 8, _item_count);
+						draw_set_halign(fa_left)
+					}
+				}
 			}
 		}
 		
@@ -57,10 +97,26 @@ if (active)
 							if (_item.durability < _item.durability_max)
 							{
 								// Get the healthbar percent:
-								var _percent = (_item.durability / _item.durability_max) * 100;
+								var _dmg = (_item.durability / _item.durability_max) * 100;
 								
 								// Draw a healthbar over the item:
-								draw_healthbar(_xx + 1, _yy + 12, _xx + 14, _yy + 13, _percent, c_black, c_red, c_green, 0, true, false);
+								draw_healthbar(_xx + 1, _yy + 12, _xx + 14, _yy + 13, _dmg, c_black, c_red, c_green, 0, true, false);
+							}
+						}
+						
+						// Check if the item is stackable:
+						if (inventory_item_is_stackable(_item))
+						{
+							// Get the item count:
+							var _item_count = inventory_get_item_count(_item);
+							
+							// Check if the stack count is larger than 1:
+							if (_item_count > 1)
+							{
+								// Draw a little number over the item:
+								draw_set_halign(fa_center);
+								draw_text_shadowed(_xx + 12, _yy + 8, _item_count);
+								draw_set_halign(fa_left);
 							}
 						}
 					}
@@ -94,6 +150,36 @@ for (var i = 0; i < hotbar_slot_count; i++)
 		{
 			var _item_id = hotbar_get_item_id(_item);
 			draw_sprite_ext(_sprindex, _item_id, _inst.xoffset + (i * 22) + 8, _inst.yoffset + 9, 1, 1, 0, c_white, 1.0);
+			
+			// Check if the item is breakable:
+			if (hotbar_is_item_breakable(_item))
+			{
+				// Check if it has been damaged:
+				if (_item.durability < _item.durability_max)
+				{
+					// Get the healthbar percent:
+					var _dmg = (_item.durability / _item.durability_max) * 100;
+								
+					// Draw a healthbar over the item:
+					draw_healthbar(_inst.xoffset + (i * 22) + 9, _inst.yoffset + 21, _inst.xoffset + (i * 22) + 22, _inst.yoffset + 22, _dmg, c_black, c_red, c_green, 0, true, false);
+				}
+			}
+			
+			// Check if the item is stackable:
+			if (hotbar_is_item_stackable(_item))
+			{
+				// Get the item count:
+				var _item_count = inventory_get_item_count(_item);
+							
+				// Check if the stack count is larger than 1:
+				if (_item_count > 1)
+				{
+					// Draw a little number over the item:
+					draw_set_halign(fa_center);
+					draw_text_shadowed(_inst.xoffset + (i * 22) + 20, _inst.yoffset + 17, _item_count);
+					draw_set_halign(fa_left);
+				}
+			}
 		}
 	}
 }

@@ -4,6 +4,9 @@ function Item(_name, _id, _type) constructor
 	item_id			= _id;
 	item_type		= _type;
 	item_count		= 1;
+	durability		= -1;
+	durability_max	= -1;
+	damage_output	= 0;
 	breakable		= false;
 	stackable		= false;
 }
@@ -43,6 +46,7 @@ function ItemWateringCan(_name, _id, _type, _water_amt, _water_amt_max) : Item(_
 {
 	durability		= _water_amt;
 	durability_max	= _water_amt_max;
+	breakable		= true;
 }
 
 function ItemFishingRod(_name, _id, _type, _hp, _hp_max) : Item(_name, _id, _type) constructor
@@ -125,4 +129,12 @@ function item_is_stackable(_item)
 	if (_item != undefined)
 		return _item.stackable;
 	return false;
+}
+
+function item_set_stack_count(_item, _size)
+{
+	if (_item != undefined && _item.stackable)
+		_item.item_count = _size;
+	else
+		_item.item_count = 1;
 }

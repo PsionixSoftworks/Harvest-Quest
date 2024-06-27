@@ -18,3 +18,6 @@ var _w, _h;
 	_w = camera_get_view_width(view_camera[0]);
 	_h = camera_get_view_height(view_camera[0]);
 display_set_gui_size(_w, _h);
+
+// Set the game's font:
+draw_set_font(fntGameText);

@@ -14,8 +14,8 @@
     {"$GMFolder":"","%Name":"Objects","folderPath":"folders/Objects.yy","name":"Objects","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Collision","folderPath":"folders/Objects/Collision.yy","name":"Collision","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Control","folderPath":"folders/Objects/Control.yy","name":"Control","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Entity","folderPath":"folders/Objects/Entity.yy","name":"Entity","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Crops","folderPath":"folders/Objects/Crops.yy","name":"Crops","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Entity","folderPath":"folders/Objects/Entity.yy","name":"Entity","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Item","folderPath":"folders/Objects/Item.yy","name":"Item","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Crops","folderPath":"folders/Objects/Item/Crops.yy","name":"Crops","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Seeds","folderPath":"folders/Objects/Item/Seeds.yy","name":"Seeds","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -63,6 +63,7 @@
   },
   "name":"Harvest Quest",
   "resources":[
+    {"id":{"name":"fntGameText","path":"fonts/fntGameText/fntGameText.yy",},},
     {"id":{"name":"objCamera","path":"objects/objCamera/objCamera.yy",},},
     {"id":{"name":"objCrop","path":"objects/objCrop/objCrop.yy",},},
     {"id":{"name":"objCropCarrot","path":"objects/objCropCarrot/objCropCarrot.yy",},},
