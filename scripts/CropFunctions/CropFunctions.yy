@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"CropFunctions",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"CropFunctions",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
