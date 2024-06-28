@@ -52,6 +52,7 @@
     {"$GMFolder":"","%Name":"Ores","folderPath":"folders/Sprites/Ores.yy","name":"Ores","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Tile Sprites","folderPath":"folders/Sprites/Tile Sprites.yy","name":"Tile Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Trees","folderPath":"folders/Sprites/Trees.yy","name":"Trees","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Use Later","folderPath":"folders/Sprites/Trees/Use Later.yy","name":"Use Later","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"UI","folderPath":"folders/Sprites/UI.yy","name":"UI","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Tile Sets","folderPath":"folders/Tile Sets.yy","name":"Tile Sets","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],

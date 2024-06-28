@@ -211,29 +211,17 @@ function player_state_normal()
 							// and pickaxe:
 							if (lmb_released)
 							{
+								// Get grid coordinates:
+								var _xx, _yy;
+									_xx = floor(mouse_x / grid_w) * grid_w;
+									_yy = floor(mouse_y / grid_h) * grid_h;
+								
+								// Initialize the crop instance:
+								var _crop_inst = noone;
+								
 								// Plant a seed wherever the mouse it and decrement one from the count:
-								if (hotbar_get_item_id(_item) == 0)
-									instance_create_layer(mouse_x, mouse_y, "Instances", objCropCarrot);
-								else if (hotbar_get_item_id(_item) == 1)
-									instance_create_layer(mouse_x, mouse_y, "Instances", objCropTomato);
-								else if (hotbar_get_item_id(_item) == 2)
-									instance_create_layer(mouse_x, mouse_y, "Instances", objCropStrawberry);
-								else if (hotbar_get_item_id(_item) == 3)
-									instance_create_layer(mouse_x, mouse_y, "Instances", objCropPumpkin);
-								else if (hotbar_get_item_id(_item) == 4)
-									instance_create_layer(mouse_x, mouse_y, "Instances", objCropCorn);
-								else if (hotbar_get_item_id(_item) == 5)
-									instance_create_layer(mouse_x, mouse_y, "Instances", objCropPotato);
-								else if (hotbar_get_item_id(_item) == 6)
-									instance_create_layer(mouse_x, mouse_y, "Instances", objCropWatermelon);
-								else if (hotbar_get_item_id(_item) == 7)
-									instance_create_layer(mouse_x, mouse_y, "Instances", objCropRadish);
-								else if (hotbar_get_item_id(_item) == 8)
-									instance_create_layer(mouse_x, mouse_y, "Instances", objCropLettuce);
-								else if (hotbar_get_item_id(_item) == 9)
-									instance_create_layer(mouse_x, mouse_y, "Instances", objCropWheat);
-								else if (hotbar_get_item_id(_item) == 10)
-									instance_create_layer(mouse_x, mouse_y, "Instances", objCropEggplant);
+								var _crop_id = hotbar_get_item_id(_item);
+								crop_place_at(_xx, _yy, _crop_id);
 								_item.item_count--;
 								lmb_released = false;
 							}

@@ -1,7 +1,8 @@
 /// @description Initialize the entire game.
 // Setup the game:
-game_state = GAME_STATE.GAME_STATE_MENU;
-global.start_room = rmTest01;
+game_state				= GAME_STATE.GAME_STATE_MENU;
+global.start_room		= rmTest01;
+global.farm_room		= rmTest01;
 global.current_season	= SEASONS.SPRING;
 
 // Check what room we're in:

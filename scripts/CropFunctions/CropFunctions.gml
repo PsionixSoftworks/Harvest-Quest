@@ -56,6 +56,41 @@ function CropEggplant() : Crop("Eggplant", 10, CROP_TYPE.CROP_TYPE_EGGPLANT) con
 {
 }
 
+function crop_place_at(_x, _y, _crop_id)
+{
+	if (_crop_id != undefined)
+	{
+		var _inst, _layer;
+			_inst = noone;
+			_layer = layer_get_id("Instances");
+		if (_crop_id == 0)
+			_inst = instance_create_layer(_x, _y, _layer, objCropCarrot);
+		else if (_crop_id == 1)
+			_inst = instance_create_layer(_x, _y, _layer, objCropTomato);
+		else if (_crop_id == 2)
+			_inst = instance_create_layer(_x, _y, _layer, objCropStrawberry);
+		else if (_crop_id == 3)
+			_inst = instance_create_layer(_x, _y, _layer, objCropPumpkin);
+		else if (_crop_id == 4)
+			_inst = instance_create_layer(_x, _y, _layer, objCropCorn);
+		else if (_crop_id == 5)
+			_inst = instance_create_layer(_x, _y, _layer, objCropPotato);
+		else if (_crop_id == 6)
+			_inst = instance_create_layer(_x, _y, _layer, objCropWatermelon);
+		else if (_crop_id == 7)
+			_inst = instance_create_layer(_x, _y, _layer, objCropRadish);
+		else if (_crop_id == 8)
+			_inst = instance_create_layer(_x, _y, _layer, objCropLettuce);
+		else if (_crop_id == 9)
+			_inst = instance_create_layer(_x, _y, _layer, objCropWheat);
+		else if (_crop_id == 10)
+			_inst = instance_create_layer(_x, _y, _layer, objCropEggplant);
+		ds_list_add(crop_data, _inst);
+		return _inst;
+	}
+	return noone;
+}
+
 function crop_get_name(_crop)
 {
 	if (_crop != NULL)
