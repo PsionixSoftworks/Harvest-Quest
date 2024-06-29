@@ -201,6 +201,11 @@ function player_state_normal()
 									xspeed = 0;
 									yspeed = 0;
 									action = "Watering";
+									if (mouse_x > x)
+										facing = "Right";
+									else if (mouse_x < x)
+										facing = "Left";
+									
 									hotbar_item_take_damage(_item, 1);
 									state = PLAYER_STATE.PLAYER_STATE_WATERING;
 									lmb_released = false;
@@ -446,7 +451,7 @@ function player_state_watering()
 			// Get watering can water amount:
 			var _item = _inst.hotbar_slots[| _inst.selected_slot];
 			var _water_amt = hotbar_get_item_durability(_item);
-			if (_water_amt > 0)
+			if (_water_amt > 0 && point_distance(x, y, _crop.x, _crop.y) <= 32)
 			{
 				crop_set_wet(_crop.crop_index, true);
 			}
