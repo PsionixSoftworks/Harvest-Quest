@@ -106,6 +106,7 @@
     {"id":{"name":"objOreSilver","path":"objects/objOreSilver/objOreSilver.yy",},},
     {"id":{"name":"objOreSoapstone","path":"objects/objOreSoapstone/objOreSoapstone.yy",},},
     {"id":{"name":"objSolid","path":"objects/objSolid/objSolid.yy",},},
+    {"id":{"name":"objTimeOfDay","path":"objects/objTimeOfDay/objTimeOfDay.yy",},},
     {"id":{"name":"objTree","path":"objects/objTree/objTree.yy",},},
     {"id":{"name":"objTreeApple","path":"objects/objTreeApple/objTreeApple.yy",},},
     {"id":{"name":"objTreeBirch","path":"objects/objTreeBirch/objTreeBirch.yy",},},

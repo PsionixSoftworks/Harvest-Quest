@@ -12,6 +12,9 @@ if (room == rmInit)
 	// this will only be triggered from the title screen:
 	game_state = GAME_STATE.GAME_STATE_PLAY;
 	room_goto(global.start_room);
+	
+	// Create the time of day:
+	instance_create_layer(0, 0, "Instances", objTimeOfDay);
 }
 
 // We need to adjust the GUI layer to the screen size for things to render properly:
