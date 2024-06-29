@@ -1,10 +1,10 @@
 {
   "$GMSprite":"",
   "%Name":"sprCropWheat",
-  "bboxMode":0,
+  "bboxMode":1,
   "bbox_bottom":15,
-  "bbox_left":1,
-  "bbox_right":14,
+  "bbox_left":0,
+  "bbox_right":15,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,

@@ -86,3 +86,9 @@ function hotbar_clear_slot(_slot)
 {
 	hotbar_slots[| _slot] = NULL;
 }
+
+function hotbar_item_take_damage(_item, _dmg)
+{
+	if (_item != NULL)
+		_item.durability -= _dmg;
+}

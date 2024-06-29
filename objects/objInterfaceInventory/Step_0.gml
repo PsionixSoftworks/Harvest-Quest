@@ -318,11 +318,14 @@ else
 	}
 }
 
+// Get the item in the selected hotbar slot:
+var _item = hotbar_slots[| selected_slot];
+
 // Check if the item is breakable:
-if (hotbar_is_item_breakable(hotbar_slots[| selected_slot]))
+if (hotbar_is_item_breakable(_item))
 {
-	// Check if the item has run out in the selected slot:
-	if (hotbar_get_item_durability(hotbar_slots[| selected_slot]) <= 0)
+	// Check if the item has run out in the selected slot (as long as it isn't watering can):
+	if (hotbar_get_item_durability(_item) <= 0 && hotbar_get_item_type(_item) != ITEM_TYPE.ITEM_TYPE_WATERING_CAN)
 	{
 		// If so, clear it:
 		hotbar_clear_slot(selected_slot);
@@ -330,10 +333,10 @@ if (hotbar_is_item_breakable(hotbar_slots[| selected_slot]))
 }
 	
 // Check if the item is stackable:
-if (hotbar_is_item_stackable(hotbar_slots[| selected_slot]))
+if (hotbar_is_item_stackable(_item))
 {
 	// Check if the item stack is empty:
-	if (hotbar_get_item_count(hotbar_slots[| selected_slot]) <= 0)
+	if (hotbar_get_item_count(_item) <= 0)
 	{
 		// If so, clear it:
 		hotbar_clear_slot(selected_slot);

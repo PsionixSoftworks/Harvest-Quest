@@ -92,93 +92,93 @@ function crop_place_at(_x, _y, _crop_id)
 
 function crop_get_name(_crop)
 {
-	if (_crop != NULL)
+	if (_crop != noone)
 		return _crop.crop_name;
 	return "<UNDEFINED>";
 }
 
 function crop_get_id(_crop)
 {
-	if (_crop != NULL)
+	if (_crop != noone)
 		return _crop.crop_id;
 	return -1;
 }
 
 function crop_get_type(_crop)
 {
-	if (_crop != NULL)
+	if (_crop != noone)
 		return _crop.crop_type;
 	return -1;
 }
 
 function crop_get_age(_crop)
 {
-	if (_crop != NULL)
+	if (_crop != noone)
 		return _crop.age;
 	return 0;
 }
 
 function crop_get_growth_rate(_crop)
 {
-	if (_crop != NULL)
+	if (_crop != noone)
 		return _crop.growth_rate;
 	return 0;
 }
 
 function crop_get_growth_stage(_crop)
 {
-	if (_crop != NULL)
+	if (_crop != noone)
 		return _crop.growth_stage;
 	return 0;
 }
 
 function crop_get_growth_stage_max(_crop)
 {
-	if (_crop != NULL)
+	if (_crop != noone)
 		return _crop.growth_stage_max;
 	return 0;
 }
 
 function crop_is_fully_grown(_crop)
 {
-	if (_crop != NULL)
+	if (_crop != noone)
 		return (_crop.growth_stage == _crop.growth_stage_max);
 	return false;
 }
 
 function crop_is_wet(_crop)
 {
-	if (_crop !=  NULL)
+	if (_crop !=  noone)
 		return _crop.wet;
 	return false;
 }
 
 function crop_age_up(_crop)
 {
-	if (_crop != NULL)
+	if (_crop != noone)
 		_crop.age++;
 }
 
 function crop_set_growth_rate(_crop, _x)
 {
-	if (_crop != NULL)
+	if (_crop != noone)
 		growth_rate = _x;
 }
 
 function crop_set_growth_stage(_crop, _x)
 {
-	if (_crop != NULL)
+	if (_crop != noone)
 		growth_stage =_x;
 }
 
 function crop_set_growth_stage_max(_crop, _x)
 {
-	if (_crop != NULL)
+	if (_crop != noone)
 		growth_stage_max =_x;
 }
 
 function crop_set_wet(_crop, _x)
 {
-	if (_crop != NULL)
+	if (_crop != noone)
 		wet = _x;
 }

@@ -194,12 +194,17 @@ function player_state_normal()
 							// and pickaxe:
 							if (lmb_released)
 							{
-								// Stop movement and switch to the watering state:
-								xspeed = 0;
-								yspeed = 0;
-								action = "Watering";
-								state = PLAYER_STATE.PLAYER_STATE_WATERING;
-								lmb_released = false;
+								// Check if we have water in the can:
+								if (hotbar_get_item_durability(_item) > 0)
+								{
+									// Stop movement and switch to the watering state:
+									xspeed = 0;
+									yspeed = 0;
+									action = "Watering";
+									hotbar_item_take_damage(_item, 1);
+									state = PLAYER_STATE.PLAYER_STATE_WATERING;
+									lmb_released = false;
+								}
 							}
 						}
 						
@@ -424,6 +429,29 @@ function player_state_watering()
 {
 	sprite_index = asset_get_index("sprChar1Watering" + string(facing));
 	image_speed = 1;
+	
+	// Get the grid square the mouse cursor is in:
+	var _mx, _my;
+		_mx = floor(mouse_x / grid_w) * grid_w;
+		_my = floor(mouse_y / grid_h) * grid_h;
+	
+	// Check if there's a crop where we clicked:
+	var _crop = collision_rectangle(_mx, _my, _mx + grid_w, _my + grid_h, objCrop, false, true);
+	if (_crop != noone)
+	{
+		// Find the inventory:
+		var _inst = instance_find(objInterfaceInventory, 0);
+		if (instance_exists(_inst))
+		{
+			// Get watering can water amount:
+			var _item = _inst.hotbar_slots[| _inst.selected_slot];
+			var _water_amt = hotbar_get_item_durability(_item);
+			if (_water_amt > 0)
+			{
+				crop_set_wet(_crop, true);
+			}
+		}
+	}
 }
 
 /// @func player_state_hoe(void);

@@ -99,8 +99,13 @@ if (active)
 								// Get the healthbar percent:
 								var _dmg = (_item.durability / _item.durability_max) * 100;
 								
+								// Get the min and max colors:
+								var _mincol, _maxcol;
+									_mincol = (_item.item_type == ITEM_TYPE.ITEM_TYPE_WATERING_CAN) ? $FF7F00 : c_red;
+									_maxcol = (_item.item_type == ITEM_TYPE.ITEM_TYPE_WATERING_CAN) ? $FF7F00 : c_green;
+								
 								// Draw a healthbar over the item:
-								draw_healthbar(_xx + 1, _yy + 12, _xx + 14, _yy + 13, _dmg, c_black, c_red, c_green, 0, true, false);
+								draw_healthbar(_xx + 1, _yy + 12, _xx + 14, _yy + 13, _dmg, c_black, _mincol, _maxcol, 0, true, false);
 							}
 						}
 						
@@ -159,9 +164,14 @@ for (var i = 0; i < hotbar_slot_count; i++)
 				{
 					// Get the healthbar percent:
 					var _dmg = (_item.durability / _item.durability_max) * 100;
-								
+					
+					// Get the min and max colors:
+					var _mincol, _maxcol;
+						_mincol = (_item.item_type == ITEM_TYPE.ITEM_TYPE_WATERING_CAN) ? $FF7F00 : c_red;
+						_maxcol = (_item.item_type == ITEM_TYPE.ITEM_TYPE_WATERING_CAN) ? $FF7F00 : c_green;
+					
 					// Draw a healthbar over the item:
-					draw_healthbar(_inst.xoffset + (i * 22) + 9, _inst.yoffset + 21, _inst.xoffset + (i * 22) + 22, _inst.yoffset + 22, _dmg, c_black, c_red, c_green, 0, true, false);
+					draw_healthbar(_inst.xoffset + (i * 22) + 9, _inst.yoffset + 21, _inst.xoffset + (i * 22) + 22, _inst.yoffset + 22, _dmg, c_black, _mincol, _maxcol, 0, true, false);
 				}
 			}
 			

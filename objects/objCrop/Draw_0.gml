@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-if (crop_index != NULL)
+if (crop_index != noone)
 {
 	var _age, _wet;
 		_age = crop_get_age(crop_index);
