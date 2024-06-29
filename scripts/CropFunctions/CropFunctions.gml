@@ -8,7 +8,6 @@ function Crop(_name, _id, _type) constructor
 	growth_rate						= 0;
 	growth_stage					= 0;
 	growth_stage_max				= 0;
-	fully_grown						= false;
 	wet								= false;
 }
 
@@ -85,7 +84,7 @@ function crop_place_at(_x, _y, _crop_id)
 			_inst = instance_create_layer(_x, _y, _layer, objCropWheat);
 		else if (_crop_id == 10)
 			_inst = instance_create_layer(_x, _y, _layer, objCropEggplant);
-		ds_list_add(crop_data, _inst);
+		ds_list_add(crop_data, _inst.crop_index);
 		return _inst;
 	}
 	return noone;
@@ -143,7 +142,7 @@ function crop_get_growth_stage_max(_crop)
 function crop_is_fully_grown(_crop)
 {
 	if (_crop != NULL)
-		return _crop.fully_grown;
+		return (_crop.growth_stage == _crop.growth_stage_max);
 	return false;
 }
 
@@ -158,4 +157,28 @@ function crop_age_up(_crop)
 {
 	if (_crop != NULL)
 		_crop.age++;
+}
+
+function crop_set_growth_rate(_crop, _x)
+{
+	if (_crop != NULL)
+		growth_rate = _x;
+}
+
+function crop_set_growth_stage(_crop, _x)
+{
+	if (_crop != NULL)
+		growth_stage =_x;
+}
+
+function crop_set_growth_stage_max(_crop, _x)
+{
+	if (_crop != NULL)
+		growth_stage_max =_x;
+}
+
+function crop_set_wet(_crop, _x)
+{
+	if (_crop != NULL)
+		wet = _x;
 }
