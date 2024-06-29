@@ -162,23 +162,23 @@ function crop_age_up(_crop)
 function crop_set_growth_rate(_crop, _x)
 {
 	if (_crop != noone)
-		growth_rate = _x;
+		_crop.growth_rate = _x;
 }
 
 function crop_set_growth_stage(_crop, _x)
 {
 	if (_crop != noone)
-		growth_stage =_x;
+		_crop.growth_stage =_x;
 }
 
 function crop_set_growth_stage_max(_crop, _x)
 {
 	if (_crop != noone)
-		growth_stage_max =_x;
+		_crop.growth_stage_max =_x;
 }
 
 function crop_set_wet(_crop, _x)
 {
 	if (_crop != noone)
-		wet = _x;
+		_crop.wet = _x;
 }

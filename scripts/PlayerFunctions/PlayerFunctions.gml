@@ -436,7 +436,7 @@ function player_state_watering()
 		_my = floor(mouse_y / grid_h) * grid_h;
 	
 	// Check if there's a crop where we clicked:
-	var _crop = collision_rectangle(_mx, _my, _mx + grid_w, _my + grid_h, objCrop, false, true);
+	var _crop = collision_rectangle(_mx, _my, _mx + grid_w, _my + grid_h, objCrop, true, true);
 	if (_crop != noone)
 	{
 		// Find the inventory:
@@ -448,7 +448,7 @@ function player_state_watering()
 			var _water_amt = hotbar_get_item_durability(_item);
 			if (_water_amt > 0)
 			{
-				crop_set_wet(_crop, true);
+				crop_set_wet(_crop.crop_index, true);
 			}
 		}
 	}
