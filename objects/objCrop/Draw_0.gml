@@ -2,8 +2,8 @@
 // You can write your code in this editor
 if (crop_index != noone)
 {
-	var _age, _wet;
-		_age = crop_get_age(crop_index);
+	var _growth_stage, _wet;
+		_growth_stage = crop_get_growth_stage(crop_index);
 		_wet = crop_is_wet(crop_index);
-	draw_sprite(sprite_index, _age + (_wet * 6), x, y);
+	draw_sprite(sprite_index, _growth_stage + (_wet * 6), x, y);
 }

@@ -4,6 +4,65 @@ time_of_day += time_scale;
 if (time_of_day > 86400)
 {
 	time_of_day = 0;
+	
+	if (ds_exists(crop_data, ds_type_list))
+	{
+		var _size = ds_list_size(crop_data);
+		if (_size == 12)
+		{
+			show_debug_message("Crop Data[0]: " + string(crop_get_age(crop_data[| 0])));
+			show_debug_message("Crop Data[0]: " + string(crop_get_age(crop_data[| 11])));
+		}
+		for (var i = 0; i < _size; i++)
+		{
+			crop_age_up(crop_data[| i]);
+		}
+	}
+}
+
+// Check if it's day time:
+daytime = ((time_of_day >= 21600) && (time_of_day < 64800));
+if (daytime)
+{
+	if (!audio_is_playing(sndEffectDaytimeAmbience))
+	{
+		audio_sound_gain(sndEffectDaytimeAmbience, 1, 1000);
+	}
+	else if (audio_is_playing(sndEffectNighttimeAmbience))
+	{
+		audio_sound_gain(sndEffectNighttimeAmbience, 0, 1000);
+	}
+}
+else
+{
+	if (!audio_is_playing(sndEffectNighttimeAmbience))
+	{
+		audio_sound_gain(sndEffectNighttimeAmbience, 1, 1000);
+	}
+	else if (audio_is_playing(sndEffectDaytimeAmbience))
+	{
+		audio_sound_gain(sndEffectDaytimeAmbience, 0, 1000);
+	}
+}
+
+if (audio_sound_get_gain(sndEffectDaytimeAmbience) > 0)
+{
+	if (!audio_is_playing(sndEffectDaytimeAmbience))
+		audio_play_sound(sndEffectDaytimeAmbience, 100, true);
+}
+else
+{
+	audio_stop_sound(sndEffectDaytimeAmbience);
+}
+
+if (audio_sound_get_gain(sndEffectNighttimeAmbience) > 0)
+{
+	if (!audio_is_playing(sndEffectNighttimeAmbience))
+		audio_play_sound(sndEffectNighttimeAmbience, 100, true);
+}
+else
+{
+	audio_stop_sound(sndEffectNighttimeAmbience);
 }
 
 seconds = time_of_day mod 60;
@@ -16,7 +75,6 @@ key_previous	= min(floor(_time * number_of_key_times), number_of_key_times - 1);
 key_next		= (key_previous + 1) mod number_of_key_times;
 
 var _lerp_amt = (_time - key_previous / number_of_key_times) * number_of_key_times;
-
 
 color_mix = [
 	lerp(color[key_previous, 0], color[key_next, 0], _lerp_amt),

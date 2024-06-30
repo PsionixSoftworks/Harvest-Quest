@@ -136,6 +136,8 @@
     {"id":{"name":"README","path":"scripts/README/README.yy",},},
     {"id":{"name":"SystemFunctions","path":"scripts/SystemFunctions/SystemFunctions.yy",},},
     {"id":{"name":"shDayNight","path":"shaders/shDayNight/shDayNight.yy",},},
+    {"id":{"name":"sndEffectDaytimeAmbience","path":"sounds/sndEffectDaytimeAmbience/sndEffectDaytimeAmbience.yy",},},
+    {"id":{"name":"sndEffectNighttimeAmbience","path":"sounds/sndEffectNighttimeAmbience/sndEffectNighttimeAmbience.yy",},},
     {"id":{"name":"sprAxeWoodDown","path":"sprites/sprAxeWoodDown/sprAxeWoodDown.yy",},},
     {"id":{"name":"sprAxeWoodLeft","path":"sprites/sprAxeWoodLeft/sprAxeWoodLeft.yy",},},
     {"id":{"name":"sprAxeWoodRight","path":"sprites/sprAxeWoodRight/sprAxeWoodRight.yy",},},

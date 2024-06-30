@@ -25,3 +25,6 @@ display_set_gui_size(_w, _h);
 
 // Set the game's font:
 draw_set_font(fntGameText);
+
+// And finally, raandomize the game seed (pun intended):
+randomize();
