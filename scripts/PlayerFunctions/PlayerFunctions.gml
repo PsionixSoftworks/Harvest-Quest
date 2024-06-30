@@ -96,6 +96,26 @@ function player_state_normal()
 				}
 			}
 		}
+		
+		// Check if there is a crop at the player's feet:
+		var _crop = instance_place(x, y, objCrop);
+		var _crop_index = _crop.crop_index;
+		if (instance_exists(_crop) && crop_get_age(_crop_index) >= 10)
+		{
+			// Now find the hotbar this time. We want to add the crops to the hotbar:
+			var _inst = instance_find(objInterfaceInventory, 0);
+			if (instance_exists(_inst))
+			{
+				if (_inst.hotbar_slots[| _inst.selected_slot] == NULL)
+				{
+					var _item = noone;
+					_item = instance_create_layer(0, 0, "Instances", objItemCrop);
+					_inst.hotbar_slots[| _inst.selected_slot] = _item.item_index;
+					instance_destroy(_inst);
+					instance_destroy(_item);
+				}
+			}
+		}
 	}
 	
 	// Next, we need to handle the inventory. Let's see if it's in the world:

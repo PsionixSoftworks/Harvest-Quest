@@ -9,6 +9,5 @@ if (crop_index != noone)
 		_growth_stage = (_age / _growth_stage_max) * 5;
 	else
 		_growth_stage = 0;
-	if (_growth_stage < 5)
-		crop_set_growth_stage(crop_index, _growth_stage);
+	crop_set_growth_stage(crop_index, min(_growth_stage, 5));
 }

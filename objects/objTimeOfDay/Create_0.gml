@@ -5,7 +5,7 @@ seconds					= 0;		// The number of seconds passed
 minutes					= 0;		// The number of minutes passed
 hours					= 0;		// The number of hours passed
 days					= 0;		// The number of days passed
-time_scale				= 30;		// The time scale in secods per game second
+time_scale				= 1;		// The time scale in secods per game second
 daytime					= true;
 
 application_surface_draw_enable(false);
