@@ -6,7 +6,7 @@ minutes					= 0;		// The number of minutes passed
 hours					= 0;		// The number of hours passed
 days					= 0;		// The number of days passed
 time_scale				= 30;		// The time scale in secods per game second
-daytime					= time_of_day >= 21600;
+daytime					= true;
 
 application_surface_draw_enable(false);
 shader_index			= shDayNight;
@@ -28,3 +28,6 @@ set_time_of_day_color(255, 250, 230,	1.3, 0.9, 0.15,		0.0, 1.0);		// Noon
 set_time_of_day_color(215, 150, 200,	1.4, 1.1, 0.15,		0.0, 1.0);		// Late Afternoon
 set_time_of_day_color(10, 80, 220,		0.9, 0.9, 0.0,		2.0, 0.75);		// Dusk
 number_of_key_times		= array_length(color);
+
+// So crickets don't start chirping at game start:
+audio_sound_gain(sndEffectNighttimeAmbience, 0, 0);

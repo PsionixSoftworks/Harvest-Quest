@@ -8,14 +8,13 @@ if (time_of_day > 86400)
 	if (ds_exists(crop_data, ds_type_list))
 	{
 		var _size = ds_list_size(crop_data);
-		if (_size == 12)
+		if (_size > 0)
 		{
-			show_debug_message("Crop Data[0]: " + string(crop_get_age(crop_data[| 0])));
-			show_debug_message("Crop Data[0]: " + string(crop_get_age(crop_data[| 11])));
-		}
-		for (var i = 0; i < _size; i++)
-		{
-			crop_age_up(crop_data[| i]);
+			for (var i = 0; i < _size; i++)
+			{
+				if (crop_is_wet(crop_data[| i]))
+					crop_age_up(crop_data[| i]);
+			}
 		}
 	}
 }
