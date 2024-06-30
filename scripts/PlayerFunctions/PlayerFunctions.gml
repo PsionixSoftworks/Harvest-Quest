@@ -33,6 +33,9 @@ function player_state_normal()
 	xspeed = (keyboard_check(ord("D")) - keyboard_check(ord("A"))) * spd;
 	yspeed = (keyboard_check(ord("S")) - keyboard_check(ord("W"))) * spd;
 	
+	// Implement sprinting:
+	spd = keyboard_check(vk_lshift) ? max_run_speed : max_walk_speed;
+	
 	// Check for horizontal movement:
 	if (xspeed == 0)
 	{
