@@ -1,5 +1,5 @@
-/// @description Create gold ore
-// Inherit the parent event
+/// @description Create gold ore.
+// Inherit the parent event:
 event_inherited();
 
 // Set the HP:

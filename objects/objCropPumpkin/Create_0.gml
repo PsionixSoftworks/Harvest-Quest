@@ -1,8 +1,11 @@
-/// @description Insert description here
+/// @description Initialize the pumpkin crop.
 // Inherit the parent event
 event_inherited();
 
+// Create each variant of the pumpkin here (if multiple):
 crop_pumpkin				= new CropPumpkin();
+
+// Set the crop_index to the first crop declared for now:
 crop_index					= crop_pumpkin;
 
 // Set the max growth stage for this crop (in number of days):

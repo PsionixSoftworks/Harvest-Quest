@@ -7,6 +7,11 @@ if (active)
 		_mx = device_mouse_x_to_gui(0);
 		_my = device_mouse_y_to_gui(0);
 	
+	// Initialize local variables:
+	var _item, _hotbar;
+		_item			= NULL;
+		_hotbar			= noone;
+	
 	// Check if the user is clicking on or touching one of the tabs:
 	if (device_mouse_check_button_pressed(0, mb_left))
 	{		
@@ -33,83 +38,33 @@ if (active)
 					if (_mx > xoffset + (i * 21) + 97 && _mx < xoffset + (i * 21) + 113 && _my > yoffset + (j * 22) + 63 && _my < yoffset + (j * 22) + 79)
 					{
 						// Store the item in a variable:
-						var _item = inventory_slots[| j * inventory_slots_x + i];
+						_item = inventory_slots[| j * inventory_slots_x + i];
 						
 						// Now check if there is an item in the slot:
 						if (_item != NULL)
 						{
+							// Set the instance of the item and an index:
 							var _inst, _idx;
 								_inst = noone;
 								_idx = j * inventory_slots_x + i;
-							if (_item.item_type == ITEM_TYPE.ITEM_TYPE_SWORD)
+								
+							// Check if the item is non-null:
+							if (_item.item_type != NULL)
 							{
-								_inst = instance_create_layer(mouse_x, mouse_y, "Instances", objItemSword);
+								// Get a valid instance layer:
+								var _layer = find_valid_instance_layer("Instances");
+								
+								// Create the item (based on type) and assign its index:
+								_inst = instance_create_layer(mouse_x, mouse_y, _layer, item_type_to_obj[_item.item_type]);
 								_inst.item_index		= _item;
+								
+								// Set the grabbed item to the newly created item:
 								grabbed_item			= _inst;
+								
+								// Clear the inventory slot:
 								inventory_slots[| _idx] = NULL;
-								last_inventory_slot		= _idx;
-								last_hotbar_slot		= -1;
-							}
-							else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_PICKAXE)
-							{
-								_inst = instance_create_layer(mouse_x, mouse_y, "Instances", objItemPickaxe);
-								_inst.item_index		= _item;
-								grabbed_item			= _inst;
-								inventory_slots[| _idx] = NULL;
-								last_inventory_slot		= _idx;
-								last_hotbar_slot		= -1;
-							}
-							else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_AXE)
-							{
-								_inst = instance_create_layer(mouse_x, mouse_y, "Instances", objItemAxe);
-								_inst.item_index		= _item;
-								grabbed_item			= _inst;
-								inventory_slots[| _idx] = NULL;
-								last_inventory_slot		= _idx;
-								last_hotbar_slot		= -1;
-							}
-							else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_HOE)
-							{
-								_inst = instance_create_layer(mouse_x, mouse_y, "Instances", objItemHoe);
-								_inst.item_index		= _item;
-								grabbed_item			= _inst;
-								inventory_slots[| _idx] = NULL;
-								last_inventory_slot		= _idx;
-								last_hotbar_slot		= -1;
-							}
-							else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_WATERING_CAN)
-							{
-								_inst = instance_create_layer(mouse_x, mouse_y, "Instances", objItemWateringCan);
-								_inst.item_index		= _item;
-								grabbed_item			= _inst;
-								inventory_slots[| _idx] = NULL;
-								last_inventory_slot		= _idx;
-								last_hotbar_slot		= -1;
-							}
-							else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_FISHING_ROD)
-							{
-								_inst = instance_create_layer(mouse_x, mouse_y, "Instances", objItemFishingRod);
-								_inst.item_index		= _item;
-								grabbed_item			= _inst;
-								inventory_slots[| _idx] = NULL;
-								last_inventory_slot		= _idx;
-								last_hotbar_slot		= -1;
-							}
-							else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_SEEDS)
-							{
-								_inst = instance_create_layer(mouse_x, mouse_y, "Instances", objItemSeed);
-								_inst.item_index		= _item;
-								grabbed_item			= _inst;
-								inventory_slots[| _idx] = NULL;
-								last_inventory_slot		= _idx;
-								last_hotbar_slot		= -1;
-							}
-							else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_CROPS)
-							{
-								_inst = instance_create_layer(mouse_x, mouse_y, "Instances", objItemCrop);
-								_inst.item_index		= _item;
-								grabbed_item			= _inst;
-								inventory_slots[| _idx]	= NULL;
+								
+								// And tell the game which slot the item was picked up from:
 								last_inventory_slot		= _idx;
 								last_hotbar_slot		= -1;
 							}
@@ -122,80 +77,36 @@ if (active)
 			for (var i = 0; i < hotbar_slot_count; i++)
 			{
 				// Find the hotbar instance:
-				var _inst1 = instance_find(objInterfaceHotbar, 0);
-				if (!instance_exists(_inst1))
+				_hotbar = instance_find(objInterfaceHotbar, 0);
+				if (!instance_exists(_hotbar))
 					return;
 				
 				// Check if the mouse cursor is over a slot:
-				if (_mx > _inst1.xoffset + (i * 22) + 8 && _mx < _inst1.xoffset + (i * 22) + 23 && _my > _inst1.yoffset + 9 && _my < _inst1.yoffset + 24)
+				if (_mx > _hotbar.xoffset + (i * 22) + 8 && _mx < _hotbar.xoffset + (i * 22) + 23 && _my > _hotbar.yoffset + 9 && _my < _hotbar.yoffset + 24)
 				{					
 					// Store the item in a variable:
-					var _item = hotbar_slots[| i];
+					_item = hotbar_slots[| i];
 				
 					// Now check if there is an item in the slot:
 					if (_item != NULL)
 					{
-						var _inst2 = noone;
-						if (_item.item_type == ITEM_TYPE.ITEM_TYPE_SWORD)
+						// Set the instance of the item to noone at first:
+						var _inst = noone;
+						
+						// Check if the item type is non-null:
+						if (_item.item_type != NULL)
 						{
-							_inst2 = instance_create_layer(mouse_x, mouse_y, "Instances", objItemSword);
-							_inst2.item_index			= _item;
-							grabbed_item				= _inst2;
+							// Create the item (based on type) and assign its index:
+							_inst = instance_create_layer(mouse_x, mouse_y, "Instances", item_type_to_obj[_item.item_type]);
+							_inst.item_index			= _item;
+							
+							// Set the grabbed item to the newly created item:
+							grabbed_item				= _inst;
+							
+							// Clear the hotbar slot:
 							hotbar_slots[| i]			= NULL;
-							last_hotbar_slot			= i;
-							last_inventory_slot			= -1;
-						}
-						else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_PICKAXE)
-						{
-							_inst2 = instance_create_layer(mouse_x, mouse_y, "Instances", objItemPickaxe);
-							_inst2.item_index			= _item;
-							grabbed_item				= _inst2;
-							hotbar_slots[| i]			= NULL;
-							last_hotbar_slot			= i;
-							last_inventory_slot			= -1;
-						}
-						else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_AXE)
-						{
-							_inst2 = instance_create_layer(mouse_x, mouse_y, "Instances", objItemAxe);
-							_inst2.item_index			= _item;
-							grabbed_item				= _inst2;
-							hotbar_slots[| i]			= NULL;
-							last_hotbar_slot			= i;
-							last_inventory_slot			= -1;
-						}
-						else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_HOE)
-						{
-							_inst2 = instance_create_layer(mouse_x, mouse_y, "Instances", objItemHoe);
-							_inst2.item_index			= _item;
-							grabbed_item				= _inst2;
-							hotbar_slots[| i]			= NULL;
-							last_hotbar_slot			= i;
-							last_inventory_slot			= -1;
-						}
-						else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_FISHING_ROD)
-						{
-							_inst2 = instance_create_layer(mouse_x, mouse_y, "Instances", objItemFishingRod);
-							_inst2.item_index			= _item;
-							grabbed_item				= _inst2;
-							hotbar_slots[| i]			= NULL;
-							last_hotbar_slot			= i;
-							last_inventory_slot			= -1;
-						}
-						else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_SEEDS)
-						{
-							_inst2 = instance_create_layer(mouse_x, mouse_y, "Instances", objItemSeed);
-							_inst2.item_index			= _item;
-							grabbed_item				= _inst2;
-							hotbar_slots[| i]			= NULL;
-							last_hotbar_slot			= i;
-							last_inventory_slot			= -1;
-						}
-						else if (_item.item_type == ITEM_TYPE.ITEM_TYPE_CROPS)
-						{
-							_inst2 = instance_create_layer(mouse_x, mouse_y, "Instances", objItemCrop);
-							_inst2.item_index			= _item;
-							grabbed_item				= _inst2;
-							hotbar_slots[| i]			= NULL;
+							
+							// And tell the game which slot the item was picked up from:
 							last_hotbar_slot			= i;
 							last_inventory_slot			= -1;
 						}
@@ -204,14 +115,18 @@ if (active)
 			}
 		}
 	}
+	// Check if the mouse button (or touch) was released:
 	else if (device_mouse_check_button_released(0, mb_left))
 	{
+		// Check if we are in the inventory tab:
 		if (tab_index == 0)
 		{
+			// Iterate through the inventory slots:
 			for (var j = 0; j < inventory_slots_y; j++)
 			{
 				for (var i = 0 ; i < inventory_slots_x; i++)
 				{
+					// Check if the mouse cursor is over a hotbar slot:
 					if (_mx > xoffset + (i * 21) + 97 && _mx < xoffset + (i * 21) + 113 && _my > yoffset + (j * 22) + 63 && _my < yoffset + (j * 22) + 79)
 					{
 						// Check if the item is valid:
@@ -273,12 +188,14 @@ if (active)
 							// Put the item back in the last slot it was taken from:
 							if (last_inventory_slot != -1)
 							{
+								// Place the item in the last inventory slot it was picked up from:
 								inventory_slots[| last_inventory_slot] = grabbed_item.item_index;
 								instance_destroy(grabbed_item);
 								grabbed_item = noone;
 							}
 							else if (last_hotbar_slot != -1)
 							{
+								// Place the item in the last hotbar slot it was picked up from:
 								hotbar_slots[| last_hotbar_slot] = grabbed_item.item_index;
 								instance_destroy(grabbed_item);
 								grabbed_item = noone;

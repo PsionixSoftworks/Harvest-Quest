@@ -1,4 +1,4 @@
-/// @description Create soapstone ore
+/// @description Create soapstone ore:
 // Inherit the parent event
 event_inherited();
 

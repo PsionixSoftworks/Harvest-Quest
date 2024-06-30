@@ -1,32 +1,34 @@
-/// @func player_find_state(state);
+/// @description Find the player's state.
+/// @returns N/A
 function player_find_state(_state)
 {
 	// Check if we're in "normal" state:
 	if (_state == PLAYER_STATE.PLAYER_STATE_NORMAL)
-		script_execute(player_state_normal);
+		entity_state_execute(player_state_normal);
 	
 	// Check if we're in "pickaxe" state:
 	if (_state == PLAYER_STATE.PLAYER_STATE_PICKAXE)
-		script_execute(player_state_pickaxe);
+		entity_state_execute(player_state_pickaxe);
 	
 	// Check if we're in "axe" state:
 	if (_state == PLAYER_STATE.PLAYER_STATE_AXE)
-		script_execute(player_state_axe)
+		entity_state_execute(player_state_axe)
 	
 	// Check if we're in "watering" state:
 	if (_state == PLAYER_STATE.PLAYER_STATE_WATERING)
-		script_execute(player_state_watering);
+		entity_state_execute(player_state_watering);
 	
 	// Check if we're in "hoe" state:
 	if (_state == PLAYER_STATE.PLAYER_STATE_HOE)
-		script_execute(player_state_hoe);
+		entity_state_execute(player_state_hoe);
 		
 	// Check if we're in "fishing" state:
 	if (_state == PLAYER_STATE.PLAYER_STATE_FISHING)
-		script_execute(player_state_fishing);
+		entity_state_execute(player_state_fishing);
 }
 
-/// @func player_state_normal(void);
+/// @description Handle the "normal" player state.
+/// @returns N/A
 function player_state_normal()
 {
 	// Set the xspeed and yspeed to our key mapping:
@@ -39,10 +41,12 @@ function player_state_normal()
 		// Check for vertical movement:
 		if (yspeed < 0)
 		{
+			// Face the player up:
 			facing = "Up";
 		}
 		else if (yspeed > 0)
 		{
+			// Face the player down:
 			facing = "Down";
 		}
 	}
@@ -52,10 +56,12 @@ function player_state_normal()
 		// Check for horizontal movement:
 		if (xspeed < 0)
 		{
+			// Face the player left:
 			facing = "Left";
 		}
 		else if (xspeed > 0)
 		{
+			// Face the player right:
 			facing = "Right";
 		}
 	}
@@ -98,24 +104,24 @@ function player_state_normal()
 		}
 		
 		// Check if there is a crop at the player's feet:
-		var _crop = instance_place(x, y, objCrop);
-		var _crop_index = _crop.crop_index;
-		if (instance_exists(_crop) && crop_get_age(_crop_index) >= 10)
-		{
-			// Now find the hotbar this time. We want to add the crops to the hotbar:
-			var _inst = instance_find(objInterfaceInventory, 0);
-			if (instance_exists(_inst))
-			{
-				if (_inst.hotbar_slots[| _inst.selected_slot] == NULL)
-				{
-					var _item = noone;
-					_item = instance_create_layer(0, 0, "Instances", objItemCrop);
-					_inst.hotbar_slots[| _inst.selected_slot] = _item.item_index;
-					instance_destroy(_inst);
-					instance_destroy(_item);
-				}
-			}
-		}
+		//var _crop = instance_place(x, y, objCrop);
+		//var _crop_index = _crop.crop_index;
+		//if (instance_exists(_crop) && crop_get_age(_crop_index) >= 10)
+		//{
+		//	// Now find the hotbar this time. We want to add the crops to the hotbar:
+		//	var _inst = instance_find(objInterfaceInventory, 0);
+		//	if (instance_exists(_inst))
+		//	{
+		//		if (_inst.hotbar_slots[| _inst.selected_slot] == NULL)
+		//		{
+		//			var _item = noone;
+		//			_item = instance_create_layer(0, 0, "Instances", objItemCrop);
+		//			_inst.hotbar_slots[| _inst.selected_slot] = _item.item_index;
+		//			instance_destroy(_inst);
+		//			instance_destroy(_item);
+		//		}
+		//	}
+		//}
 	}
 	
 	// Next, we need to handle the inventory. Let's see if it's in the world:
@@ -251,9 +257,12 @@ function player_state_normal()
 								
 								// Plant a seed wherever the mouse it and decrement one from the count:
 								var _crop_id = hotbar_get_item_id(_item);
-								crop_place_at(_xx, _yy, _crop_id);
-								_item.item_count--;
-								lmb_released = false;
+								if (!collision_rectangle(_xx, _yy, _xx + grid_w, _yy + grid_h, objCrop, false, true))
+								{
+									crop_place_at(_xx, _yy, _crop_id);
+									_item.item_count--;
+									lmb_released = false;
+								}
 							}
 						}
 					}
@@ -268,13 +277,15 @@ function player_state_normal()
 	}
 }
 
-/// @func player_state_sword(void);
+/// @description Handle the "sword" player state.
+/// @returns N/A
 function player_state_sword()
 {
 	// TODO: Fill this in later...
 }
 
-/// @func player_state_pickaxe(void);
+/// @description Handle the "pickaxe" player state.
+/// @returns N/A
 function player_state_pickaxe()
 {
 	sprite_index = asset_get_index("sprChar1Pickaxe" + string(facing));
@@ -363,7 +374,8 @@ function player_state_pickaxe()
 	}
 }
 
-/// @func player_state_axe(void);
+/// @description Handle the "axe" player state.
+/// @returns N/A
 function player_state_axe()
 {
 	sprite_index = asset_get_index("sprChar1Axe" + string(facing));
@@ -449,7 +461,8 @@ function player_state_axe()
 	}
 }
 
-/// @func player_state_watering(void);
+/// @description Handle the "watering" player state.
+/// @returns N/A
 function player_state_watering()
 {
 	sprite_index = asset_get_index("sprChar1Watering" + string(facing));
@@ -479,39 +492,52 @@ function player_state_watering()
 	}
 }
 
-/// @func player_state_hoe(void);
+/// @description Handle the "hoe" player state.
+/// @returns N/A
 function player_state_hoe()
 {
 	sprite_index = asset_get_index("sprChar1Hoe" + string(facing));
 	image_speed = 1;
 }
 
-/// @func player_state_fishing(void);
+/// @description Handle the "fishing" player state.
+/// @returns N/A
 function player_state_fishing()
 {
 	// TODO: Fill this in later...
 }
 
-/// @func player_handle_collision(void);
+/// @description Handle the player's collision (will later move to the entity parent).
+/// @returns N/A
 function player_handle_collision()
 {
+	// Check if there's a horizontal collision:
 	if (place_meeting(x + xspeed, y, objSolid))
 	{
+		// If so, move right up to the solid:
 		while (!place_meeting(x + sign(xspeed), y, objSolid))
 		{
+			// Move at increments of -1, 0, or 1 (see sign function in the documentation):
 			x += sign(xspeed);
 		}
+		// Stop horizontal movement:
 		xspeed = 0;
 	}
+	// Move as long as there's no collision:
 	x += xspeed;
 	
+	// Check if there's a vertical collision:
 	if (place_meeting(x, y + yspeed, objSolid))
 	{
+		// If so, move right up to the solid:
 		while (!place_meeting(x, y + sign(yspeed), objSolid))
 		{
+			// Move at increments of -1, 0, or 1 (see sign function in the documentation):
 			y += sign(yspeed);
 		}
+		// Stop vertical movement:
 		yspeed = 0;
 	}
+	// Move as long as there's no collision:
 	y += yspeed;
 }

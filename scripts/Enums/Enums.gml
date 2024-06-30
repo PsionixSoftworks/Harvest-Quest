@@ -1,3 +1,4 @@
+// Declare the game state enum:
 enum GAME_STATE
 {
 	GAME_STATE_MENU,
@@ -6,6 +7,7 @@ enum GAME_STATE
 	GAME_STATE_DEATH,
 };
 
+// Declare the player state enum:
 enum PLAYER_STATE
 {
 	PLAYER_STATE_NORMAL,
@@ -16,6 +18,7 @@ enum PLAYER_STATE
 	PLAYER_STATE_FISHING,
 };
 
+// Declare the item type enum:
 enum ITEM_TYPE
 {
 	// Tools:
@@ -33,6 +36,7 @@ enum ITEM_TYPE
 	ITEM_TYPE_CROPS,
 };
 
+// Declare the seasons enum:
 enum SEASONS
 {
 	SPRING,
@@ -41,6 +45,7 @@ enum SEASONS
 	WINTER,
 };
 
+// Declare the crop type enum:
 enum CROP_TYPE
 {
 	CROP_TYPE_CARROT=1,

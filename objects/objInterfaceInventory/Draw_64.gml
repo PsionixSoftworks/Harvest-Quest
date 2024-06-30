@@ -21,11 +21,14 @@ if (active)
 			grabbed_item.y = _my - 8;
 			grabbed_item.visible = false;
 			
-			// Then draw it at the specified coordinates:
+			// Get the sprite index of the item:
 			var _sprindex = inventory_get_item_icon(grabbed_item.item_index);
 			if (_sprindex != -1)
 			{
+				// Get the item id of the grabbed item:
 				var _item_id = item_get_id(grabbed_item.item_index);
+				
+				// Draw the item and its id:
 				draw_sprite(_sprindex, _item_id, grabbed_item.x, grabbed_item.y);
 				
 				// Check if the item is breakable:
@@ -86,8 +89,11 @@ if (active)
 					var _item_id	= inventory_get_item_id(_item);
 					if (_sprindex != -1)
 					{
+						// Find the x and y position:
 						var	_xx = xoffset + (i * 21) + 97;
 						var	_yy = yoffset + (j * 22) + 63;
+						
+						// Draw it at those coordinates:
 						draw_sprite(_sprindex, _item_id, _xx, _yy);
 						
 						// Check if the item is breakable:

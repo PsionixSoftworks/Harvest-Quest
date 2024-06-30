@@ -1,3 +1,3 @@
-/// @description Insert description here
-// You can write your code in this editor
-crop_index			= noone;
+/// @description Initialize the crops.
+// Declare instance variables:
+crop_index				= noone;

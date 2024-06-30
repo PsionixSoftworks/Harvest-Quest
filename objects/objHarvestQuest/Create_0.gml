@@ -1,30 +1,11 @@
 /// @description Initialize the entire game.
-// Setup the game:
-game_state				= GAME_STATE.GAME_STATE_MENU;
-global.start_room		= rmTest01;
-global.farm_room		= rmTest01;
-global.current_season	= SEASONS.SPRING;
+// You can write your code in this editor
+// Declare global variables:
+global.test_room		= rmTest01;						// This will be the reference to the test room.
+global.start_room		= global.test_room;				// This will be the start room until release.
+global.farm_room		= global.test_room;				// This will be the farm room until release.
+global.current_season	= SEASONS.SPRING;				// The game always starts out in spring.
 
-// Check what room we're in:
-if (room == rmInit)
-{
-	// This is temporary! Later, when the game is more polished, 
-	// this will only be triggered from the title screen:
-	game_state = GAME_STATE.GAME_STATE_PLAY;
-	room_goto(global.start_room);
-	
-	// Create the time of day:
-	instance_create_layer(0, 0, "Instances", objTimeOfDay);
-}
-
-// We need to adjust the GUI layer to the screen size for things to render properly:
-var _w, _h;
-	_w = camera_get_view_width(view_camera[0]);
-	_h = camera_get_view_height(view_camera[0]);
-display_set_gui_size(_w, _h);
-
-// Set the game's font:
-draw_set_font(fntGameText);
-
-// And finally, raandomize the game seed (pun intended):
-randomize();
+// Declare instance variables:
+game_state				= GAME_STATE.GAME_STATE_MENU;	// This will change based on whether or not we are in a menu room or a playable area
+initialized				= false;						// This is just for general initialization.

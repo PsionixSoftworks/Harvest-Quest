@@ -1,8 +1,11 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description Draw the item as it has been setup.
+// Make sure item_index exists:
 if (item_index != -1)
 {
+	// If so, get the id of the item:
 	var _item_id = item_get_id(item_index);
+	
+	// Draw the sprite with the item id:
 	draw_sprite(sprite_index, _item_id, x, y);
 	
 	// Check if the item is breakable:

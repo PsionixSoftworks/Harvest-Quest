@@ -7,5 +7,6 @@ if (!active)
 }
 else
 {
+	// We don't need to be here, so exit from this event:
 	exit;
 }

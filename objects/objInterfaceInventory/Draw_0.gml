@@ -11,7 +11,7 @@ if (!active)
 	var _item = hotbar_get_item_type(hotbar_slots[| selected_slot]);
 	
 	// Check if the watering can is selected:
-	if (_item == ITEM_TYPE.ITEM_TYPE_WATERING_CAN)
+	if (_item == ITEM_TYPE.ITEM_TYPE_WATERING_CAN || _item == ITEM_TYPE.ITEM_TYPE_SEEDS)
 	{
 		// Draw a little rectangle within the grid:
 		draw_rectangle(_mx, _my, _mx + grid_w, _my + grid_h, true);

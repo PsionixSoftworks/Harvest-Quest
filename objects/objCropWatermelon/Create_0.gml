@@ -1,8 +1,11 @@
-/// @description Insert description here
+/// @description Initialize the watermelon crop.
 // Inherit the parent event
 event_inherited();
 
+// Create each variant of the watermelon here (if multiple):
 crop_watermelon				= new CropWatermelon();
+
+// Set the crop_index to the first crop declared for now:
 crop_index					= crop_watermelon;
 
 // Set the max growth stage for this crop (in number of days):

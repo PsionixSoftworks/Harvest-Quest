@@ -1,8 +1,8 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description Draw the current time of day on the GUI layer.
+// Draw the current time of day (24 hour clock):
 draw_text(0, 0, 
-	"Hours: " + string(format_time(hours)) + "\n" +
-	"Minutes: " + string(format_time(minutes)) + "\n" +
-	"Seconds: " + string(format_time(seconds)) + "\n" +
-	"Days Passed: " + string(format_time(days))
+	string(format_time(hours)) + ":" +
+	string(format_time(minutes)) + ":" +
+	string(format_time(seconds)) + "\n" +
+	"Days Passed: " + string(days)
 );

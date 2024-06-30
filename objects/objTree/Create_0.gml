@@ -1,7 +1,9 @@
-/// @description Initialize the tree parent
+/// @description Initialize the tree parent.
 // Declare instance variables:
 season_list				= ds_list_create();
 can_be_harvested		= false;
+
+// Declare built-in variables:
 depth					= -y;
 
 // Set the season names based on the enum value:

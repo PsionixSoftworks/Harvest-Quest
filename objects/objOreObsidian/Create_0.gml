@@ -1,5 +1,5 @@
-/// @description Create chalk ore
-// Inherit the parent event
+/// @description Create obsidian ore.
+// Inherit the parent event:
 event_inherited();
 
 // Set the HP:

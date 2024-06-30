@@ -1,3 +1,3 @@
-/// @description Insert description here
-// You can write your code in this editor
-item_index				= -1;
+/// @description Initialize the item parent.
+// Declare instance variables:
+item_index				= -1;							// The index of the current item.

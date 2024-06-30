@@ -13,40 +13,57 @@ if (active)
 	player_handle_collision();
 }
 
+// Declare local variables:
+var _inst;
+	_inst = instance_find(objInterfaceInventory, 0);
+
 // Check if the enter key is pressed:
 if (keyboard_check_pressed(vk_enter))
 {
-	// Find the inventory:
-	var _inst = instance_find(objInterfaceInventory, 0);
+	// Check if the inventory exists:
 	if (instance_exists(_inst))
 	{
+		// Toggle the inventory and player's active flag:
 		_inst.active = !_inst.active;
 		active = !_inst.active;
 	}
 }
 
-// Windows only:
+// Windows only!:
 if (os_type == os_windows)
 {
-	// Find the hotbar (again...):
-	var _inst;
-		_inst = instance_find(objInterfaceInventory, 0);
+	// Check if the inventory exists:
 	if (instance_exists(_inst))
 	{
 		// Check if the user is scrolling the mouse wheel down:
 		if (mouse_wheel_down())
 		{
+			// Check if the selected slot is less than the maximum number of slots:
 			if (_inst.selected_slot < _inst.hotbar_slot_count - 1)
+			{
+				// If so, increment by 1:
 				_inst.selected_slot++;
+			}
 			else
+			{
+				// Otherwise set it back to 0:
 				_inst.selected_slot = 0;
+			}
 		}
+		// Check if the user is scrolling the mouse wheel up:
 		else if (mouse_wheel_up())
 		{
+			// Check if the selected slot is greater than 0:
 			if (_inst.selected_slot > 0)
+			{
+				// If so, decrement by 1:
 				_inst.selected_slot--;
+			}
 			else
+			{
+				// Otherwise set it to the last slot again:
 				_inst.selected_slot = _inst.hotbar_slot_count - 1;
+			}
 		}
 	}
 }

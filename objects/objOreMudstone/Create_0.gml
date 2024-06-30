@@ -1,5 +1,5 @@
-/// @description Create mudstone ore
-// Inherit the parent event
+/// @description Create mudstone ore.
+// Inherit the parent event:
 event_inherited();
 
 // Set the HP:

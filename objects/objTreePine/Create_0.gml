@@ -1,4 +1,4 @@
-/// @description Create the pine tree
+/// @description Create the pine tree.
 // Inherit the parent event:
 event_inherited();
 

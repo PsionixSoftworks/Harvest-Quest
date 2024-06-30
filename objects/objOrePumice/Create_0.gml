@@ -1,5 +1,5 @@
-/// @description Create pumice ore
-// Inherit the parent event
+/// @description Create pumice ore.
+// Inherit the parent event:
 event_inherited();
 
 // Set the HP:

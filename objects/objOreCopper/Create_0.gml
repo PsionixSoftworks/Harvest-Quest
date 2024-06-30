@@ -1,5 +1,5 @@
-/// @description Create copper ore
-// Inherit the parent event
+/// @description Create copper ore.
+// Inherit the parent event:
 event_inherited();
 
 // Set the HP:

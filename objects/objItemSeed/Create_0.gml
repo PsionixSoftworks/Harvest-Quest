@@ -1,8 +1,8 @@
-/// @description Insert description here
+/// @description initialize the seed item.
 // Inherit the parent event:
 event_inherited();
 
-// Initialize the items:
+// Create each variant of the seeds here:
 seed_carrot		= new ItemSeeds("Carrot Seeds",		0, ITEM_TYPE.ITEM_TYPE_SEEDS);
 seed_tomato		= new ItemSeeds("Tomato Seeds",		1, ITEM_TYPE.ITEM_TYPE_SEEDS);
 seed_strawberry	= new ItemSeeds("Strawberry Seeds", 2, ITEM_TYPE.ITEM_TYPE_SEEDS);
@@ -14,4 +14,6 @@ seed_radish		= new ItemSeeds("Radish Seeds",		7, ITEM_TYPE.ITEM_TYPE_SEEDS);
 seed_lettuce	= new ItemSeeds("Lettuce Seeds",	8, ITEM_TYPE.ITEM_TYPE_SEEDS);
 seed_wheat		= new ItemSeeds("WHeat Seeds",		9, ITEM_TYPE.ITEM_TYPE_SEEDS);
 seed_eggplant	= new ItemSeeds("Eggplant Seeds",	10, ITEM_TYPE.ITEM_TYPE_SEEDS);
+
+// Set the item_index to the first item declared for now:
 item_index		= seed_carrot;
