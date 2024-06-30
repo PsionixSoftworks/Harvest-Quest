@@ -1,5 +1,4 @@
 /// @description Find the player's state.
-/// @returns N/A
 function player_find_state(_state)
 {
 	// Check if we're in "normal" state:
@@ -28,7 +27,6 @@ function player_find_state(_state)
 }
 
 /// @description Handle the "normal" player state.
-/// @returns N/A
 function player_state_normal()
 {
 	// Set the xspeed and yspeed to our key mapping:
@@ -278,14 +276,12 @@ function player_state_normal()
 }
 
 /// @description Handle the "sword" player state.
-/// @returns N/A
 function player_state_sword()
 {
 	// TODO: Fill this in later...
 }
 
 /// @description Handle the "pickaxe" player state.
-/// @returns N/A
 function player_state_pickaxe()
 {
 	sprite_index = asset_get_index("sprChar1Pickaxe" + string(facing));
@@ -375,7 +371,6 @@ function player_state_pickaxe()
 }
 
 /// @description Handle the "axe" player state.
-/// @returns N/A
 function player_state_axe()
 {
 	sprite_index = asset_get_index("sprChar1Axe" + string(facing));
@@ -462,7 +457,6 @@ function player_state_axe()
 }
 
 /// @description Handle the "watering" player state.
-/// @returns N/A
 function player_state_watering()
 {
 	sprite_index = asset_get_index("sprChar1Watering" + string(facing));
@@ -493,7 +487,6 @@ function player_state_watering()
 }
 
 /// @description Handle the "hoe" player state.
-/// @returns N/A
 function player_state_hoe()
 {
 	sprite_index = asset_get_index("sprChar1Hoe" + string(facing));
@@ -501,14 +494,12 @@ function player_state_hoe()
 }
 
 /// @description Handle the "fishing" player state.
-/// @returns N/A
 function player_state_fishing()
 {
 	// TODO: Fill this in later...
 }
 
 /// @description Handle the player's collision (will later move to the entity parent).
-/// @returns N/A
 function player_handle_collision()
 {
 	// Check if there's a horizontal collision:

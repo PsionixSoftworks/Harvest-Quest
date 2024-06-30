@@ -1,7 +1,7 @@
 /// @description Draws shadowed text at the x and y position.
-/// @param _x The x position
-/// @param _y the y position
-/// @param _text The text to be displayed with a shadow.
+/// @param {Real} _x The x position
+/// @param {Real} _y the y position
+/// @param {String} _text The text to be displayed with a shadow.
 function draw_text_shadowed(_x, _y, _text)
 {
 	// Set the shadow color:

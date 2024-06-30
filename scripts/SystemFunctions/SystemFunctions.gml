@@ -1,6 +1,5 @@
 /// @description Print an info log.
-/// @param _msg The message to print.
-/// @returns N/A
+/// @param {String} _msg The message to print.
 function print_info(_msg)
 {
 	// Print the info to the consoole with the "[INFO]:" prefix:
@@ -8,8 +7,7 @@ function print_info(_msg)
 }
 
 /// @description Print a warning log.
-/// @param _msg The message to print.
-/// @returns N/A
+/// @param {String} _msg The message to print.
 function print_warn(_msg)
 {
 	// Print the info to the consoole with the "[WARNING]:" prefix:
@@ -17,8 +15,7 @@ function print_warn(_msg)
 }
 
 /// @description Print an error log.
-/// @param _msg The message to print.
-/// @returns N/A
+/// @param {String} _msg The message to print.
 function print_error(_msg)
 {
 	// Print the info to the consoole with the "[ERROR]:" prefix and end the game with exit code -1:
@@ -27,8 +24,8 @@ function print_error(_msg)
 }
 
 /// @description Format the time string.
-/// @param _num The number to convert to XX or 0X if it's less than 10.
-/// @returns Real. The formatted number.
+/// @param {Real} _num The number to convert to XX or 0X if it's less than 10.
+/// @returns {String}
 function format_time(_num)
 {
 	// Check if the number is less than 10:
@@ -42,15 +39,14 @@ function format_time(_num)
 }
 
 /// @description Sets the colors of the different times of day.
-/// @param _r The value of the red color (0-255).
-/// @param _g The value of the green color (0-255).
-/// @param _b The value of the blue color (0-255).
-/// @param _contrast (optional) The contrast of the colors.
-/// @param _saturation (optional) The saturation of the colors.
-/// @param _brightness (optional) The brightness or value of the colors.
-/// @param _pop_strength (optional) The amount colors "pop" when it gets dark.
-/// @param _pop_threshold (optional) The threshold of the pop value.
-/// @returns N/A
+/// @param {Real} _r The value of the red color (0-255).
+/// @param {Real} _g The value of the green color (0-255).
+/// @param {Real} _b The value of the blue color (0-255).
+/// @param {Real} _contrast (optional) The contrast of the colors.
+/// @param {Real} _saturation (optional) The saturation of the colors.
+/// @param {Real} _brightness (optional) The brightness or value of the colors.
+/// @param {Real} _pop_strength (optional) The amount colors "pop" when it gets dark.
+/// @param {Real} _pop_threshold (optional) The threshold of the pop value.
 function set_time_of_day_color(_r, _g, _b, _contrast=1, _saturation=1, _brightness=1, _pop_strength=0, _pop_threshold=0)
 {
 	// Declare local variables:
@@ -82,8 +78,8 @@ function set_time_of_day_color(_r, _g, _b, _contrast=1, _saturation=1, _brightne
 }
 
 /// @description Look for a valid instance layer by name. If it doesn't exist, create it.
-/// @param _layer_name The name of the later to assign.
-/// @returns String. The name of the layer.
+/// @param {String} _layer_name The name of the later to assign.
+/// @returns {String}
 function find_valid_instance_layer(_layer_name)
 {
 	// Check if the layer exists:

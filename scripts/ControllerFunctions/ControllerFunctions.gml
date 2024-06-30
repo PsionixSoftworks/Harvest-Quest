@@ -1,5 +1,4 @@
 /// @description Checks to see if all persistent/important instances have been loaded
-/// @returns N/A
 function check_instances()
 {
 	// Declare local variables:

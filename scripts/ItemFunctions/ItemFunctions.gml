@@ -1,7 +1,7 @@
 /// @description The item constructor. Creates a new item.
-/// @param _name The name of the item.
-/// @param _id The id of the item.
-/// @param _type The type of item.
+/// @param {String} _name The name of the item.
+/// @param {Real} _id The id of the item.
+/// @param {Real} _type The type of item.
 function Item(_name, _id, _type) constructor
 {
 	// Declare all of the item properties:
@@ -17,12 +17,12 @@ function Item(_name, _id, _type) constructor
 }
 
 /// @description The sword item constructor. Inherits from the item contructor.
-/// @param _name The name of the item.
-/// @param _id The id of the item.
-/// @param _type The type of item.
-/// @param _damage The damage output of the weapon.
-/// @param _hp The number of hitpoints left before the item breaks.
-/// @param _hp_max The number of hitpoints it takes to break.
+/// @param {String} _name The name of the item.
+/// @param {Real} _id The id of the item.
+/// @param {Real} _type The type of item.
+/// @param {Real} _damage The damage output of the weapon.
+/// @param {Real} _hp The number of hitpoints left before the item breaks.
+/// @param {Real} _hp_max The number of hitpoints it takes to break.
 function ItemSword(_name, _id, _type, _damage, _hp, _hp_max) : Item(_name, _id, _type) constructor
 {
 	// Update the item properties with new values:
@@ -33,12 +33,12 @@ function ItemSword(_name, _id, _type, _damage, _hp, _hp_max) : Item(_name, _id, 
 }
 
 /// @description The pickaxe item constructor. Inherits from the item contructor.
-/// @param _name The name of the item.
-/// @param _id The id of the item.
-/// @param _type The type of item.
-/// @param _damage The damage output of the tool (for ores).
-/// @param _hp The number of hitpoints left before the item breaks.
-/// @param _hp_max The number of hitpoints it takes to break.
+/// @param {String} _name The name of the item.
+/// @param {Real} _id The id of the item.
+/// @param {Real} _type The type of item.
+/// @param {Real} _damage The damage output of the tool (for ores).
+/// @param {Real} _hp The number of hitpoints left before the item breaks.
+/// @param {Real} _hp_max The number of hitpoints it takes to break.
 function ItemPickaxe(_name, _id, _type, _damage, _hp, _hp_max) : Item(_name, _id, _type) constructor
 {
 	// Update the item properties with new values:
@@ -49,12 +49,12 @@ function ItemPickaxe(_name, _id, _type, _damage, _hp, _hp_max) : Item(_name, _id
 }
 
 /// @description The axe item constructor. Inherits from the item contructor.
-/// @param _name The name of the item.
-/// @param _id The id of the item.
-/// @param _type The type of item.
-/// @param _damage The damage output of the tool (for trees).
-/// @param _hp The number of hitpoints left before the item breaks.
-/// @param _hp_max The number of hitpoints it takes to break.
+/// @param {String} _name The name of the item.
+/// @param {Real} _id The id of the item.
+/// @param {Real} _type The type of item.
+/// @param {Real} _damage The damage output of the tool (for trees).
+/// @param {Real} _hp The number of hitpoints left before the item breaks.
+/// @param {Real} _hp_max The number of hitpoints it takes to break.
 function ItemAxe(_name, _id, _type, _damage, _hp, _hp_max) : Item(_name, _id, _type) constructor
 {
 	// Update the item properties with new values:
@@ -65,11 +65,11 @@ function ItemAxe(_name, _id, _type, _damage, _hp, _hp_max) : Item(_name, _id, _t
 }
 
 /// @description The hoe item constructor. Inherits from the item contructor.
-/// @param _name The name of the item.
-/// @param _id The id of the item.
-/// @param _type The type of item.
-/// @param _hp The number of hitpoints left before the item breaks.
-/// @param _hp_max The number of hitpoints it takes to break.
+/// @param {String} _name The name of the item.
+/// @param {Real} _id The id of the item.
+/// @param {Real} _type The type of item.
+/// @param {Real} _hp The number of hitpoints left before the item breaks.
+/// @param {Real} _hp_max The number of hitpoints it takes to break.
 function ItemHoe(_name, _id, _type, _hp, _hp_max) : Item(_name, _id, _type) constructor
 {
 	// Update the item properties with new values:
@@ -79,11 +79,11 @@ function ItemHoe(_name, _id, _type, _hp, _hp_max) : Item(_name, _id, _type) cons
 }
 
 /// @description The watering can item constructor. Inherits from the item contructor.
-/// @param _name The name of the item.
-/// @param _id The id of the item.
-/// @param _type The type of item.
-/// @param _water_amt The number of uses left before the water runs out.
-/// @param _water_amt_max The number of uses it takes to empty.
+/// @param {String} _name The name of the item.
+/// @param {Real} _id The id of the item.
+/// @param {Real} _type The type of item.
+/// @param {Real} _water_amt The number of uses left before the water runs out.
+/// @param {Real} _water_amt_max The number of uses it takes to empty.
 function ItemWateringCan(_name, _id, _type, _water_amt, _water_amt_max) : Item(_name, _id, _type) constructor
 {
 	// Update the item properties with new values:
@@ -93,11 +93,11 @@ function ItemWateringCan(_name, _id, _type, _water_amt, _water_amt_max) : Item(_
 }
 
 /// @description The fishing rod item constructor. Inherits from the item contructor.
-/// @param _name The name of the item.
-/// @param _id The id of the item.
-/// @param _type The type of item.
-/// @param _hp The number of hitpoints left before the item breaks.
-/// @param _hp_max The number of hitpoints it takes to break.
+/// @param {String} _name The name of the item.
+/// @param {Real} _id The id of the item.
+/// @param {Real} _type The type of item.
+/// @param {Real} _hp The number of hitpoints left before the item breaks.
+/// @param {Real} _hp_max The number of hitpoints it takes to break.
 function ItemFishingRod(_name, _id, _type, _hp, _hp_max) : Item(_name, _id, _type) constructor
 {
 	// Update the item properties with new values:
@@ -107,10 +107,10 @@ function ItemFishingRod(_name, _id, _type, _hp, _hp_max) : Item(_name, _id, _typ
 }
 
 /// @description The seed item constructor. Inherits from the item contructor.
-/// @param _name The name of the item.
-/// @param _id The id of the item.
-/// @param _type The type of item.
-/// @param _count (optional) The number of seeds in the stack.
+/// @param {String} _name The name of the item.
+/// @param {Real} _id The id of the item.
+/// @param {Real} _type The type of item.
+/// @param {Real} _count (optional) The number of seeds in the stack.
 function ItemSeeds(_name, _id, _type, _count=real(1)) : Item(_name, _id, _type) constructor
 {
 	// Update the item properties with new values:
@@ -119,10 +119,10 @@ function ItemSeeds(_name, _id, _type, _count=real(1)) : Item(_name, _id, _type) 
 }
 
 /// @description The crop item constructor. Inherits from the item contructor.
-/// @param _name The name of the item.
-/// @param _id The id of the item.
-/// @param _type The type of item.
-/// @param _count (optional) The number of seeds in the stack.
+/// @param {String} _name The name of the item.
+/// @param {Real} _id The id of the item.
+/// @param {Real} _type The type of item.
+/// @param {Real} _count (optional) The number of seeds in the stack.
 function ItemCrop(_name, _id, _type, _count=real(1)) : Item(_name, _id, _type) constructor
 {
 	// Update the item properties with new values:
@@ -131,8 +131,8 @@ function ItemCrop(_name, _id, _type, _count=real(1)) : Item(_name, _id, _type) c
 }
 
 /// @description Get the name of the item.
-/// @param _item The item index of the item.
-/// @returns String
+/// @param {Real} _item The item index of the item.
+/// @returns {String}
 function item_get_name(_item)
 {
 	// Make sure the item is not undefined:
@@ -146,8 +146,8 @@ function item_get_name(_item)
 }
 
 /// @description Get the id of the item.
-/// @param _item The item index of the item.
-/// @returns Real
+/// @param {Real} _item The item index of the item.
+/// @returns {Real}
 function item_get_id(_item)
 {
 	// Make sure the item is not undefined:
@@ -161,8 +161,8 @@ function item_get_id(_item)
 }
 
 /// @description Get the type of the item.
-/// @param _item The item index of the item.
-/// @returns Real
+/// @param {Real} _item The item index of the item.
+/// @returns {Real}
 function item_get_type(_item)
 {
 	// Make sure the item is not undefined:
@@ -176,8 +176,8 @@ function item_get_type(_item)
 }
 
 /// @description Get the damage output of the item.
-/// @param _item The item index of the item.
-/// @returns Real
+/// @param {Real} _item The item index of the item.
+/// @returns {Real}
 function item_get_damage_output(_item)
 {
 	// Make sure the item is not undefined:
@@ -191,8 +191,8 @@ function item_get_damage_output(_item)
 }
 
 /// @description Get the durability of the item.
-/// @param _item The item index of the item.
-/// @returns Real
+/// @param {Real} _item The item index of the item.
+/// @returns {Real}
 function item_get_durability(_item)
 {
 	// Make sure the item is not undefined and is breakable:
@@ -206,8 +206,8 @@ function item_get_durability(_item)
 }
 
 /// @description Get the maximum durability of the item.
-/// @param _item The item index of the item.
-/// @returns Real
+/// @param {Real} _item The item index of the item.
+/// @returns {Real}
 function item_get_durabilty_max(_item)
 {
 	// Make sure the item is not undefined and is breakable:
@@ -221,8 +221,8 @@ function item_get_durabilty_max(_item)
 }
 
 /// @description Get the count of the item.
-/// @param _item The item index of the item.
-/// @returns Real
+/// @param {Real} _item The item index of the item.
+/// @returns {Real}
 function item_get_count(_item)
 {
 	// Make sure the item is not undefined and is stackable:
@@ -236,8 +236,8 @@ function item_get_count(_item)
 }
 
 /// @description Get whether the item is breakable or not.
-/// @param _item The item index of the+ item.
-/// @returns Boolean
+/// @param {Real} _item The item index of the+ item.
+/// @returns {Bool}
 function item_is_breakable(_item)
 {
 	// Make sure the item is not undefined:
@@ -251,8 +251,8 @@ function item_is_breakable(_item)
 }
 
 /// @description Get whether the item is stackable or not.
-/// @param _item The item index of the+ item.
-/// @returns Boolean
+/// @param {Real} _item The item index of the+ item.
+/// @returns {Bool}
 function item_is_stackable(_item)
 {
 	// Make sure the item is not undefined:
@@ -266,8 +266,8 @@ function item_is_stackable(_item)
 }
 
 /// @description Set the stack count of a stackable item.
-/// @param _item The item to set.
-/// @param _size The stack size.
+/// @param {Real} _item The item to set.
+/// @param {Real} _size The stack size.
 function item_set_stack_count(_item, _size)
 {
 	// Make sure the item is not undefined and is stackable:

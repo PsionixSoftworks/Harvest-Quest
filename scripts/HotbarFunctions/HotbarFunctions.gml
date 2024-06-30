@@ -1,6 +1,6 @@
 /// @description Get the sprite of the hotbar item.
-/// @param _item The item index of the hotbar item.
-/// @returns Sprite index or -1
+/// @param {Real} _item The item index of the hotbar item.
+/// @returns {Any}
 function hotbar_get_item_icon(_item)
 {
 	// Make sure the item is non-null:
@@ -14,8 +14,8 @@ function hotbar_get_item_icon(_item)
 }
 
 /// @description Get the name of the hotbar item.
-/// @param _item The item index of the hotbar item.
-/// @returns String
+/// @param {Real} _item The item index of the hotbar item.
+/// @returns {String}
 function hotbar_get_item_name(_item)
 {
 	// Make sure the item is non-null:
@@ -29,8 +29,8 @@ function hotbar_get_item_name(_item)
 }
 
 /// @description Get the id of the hotbar item.
-/// @param _item The item index of the hotbar item.
-/// @returns Real
+/// @param {Real} _item The item index of the hotbar item.
+/// @returns {Real}
 function hotbar_get_item_id(_item)
 {
 	// Make sure the item is non-null:
@@ -44,8 +44,8 @@ function hotbar_get_item_id(_item)
 }
 
 /// @description Get the type of the hotbar item.
-/// @param _item The item index of the hotbar item.
-/// @returns Real
+/// @param {Real} _item The item index of the hotbar item.
+/// @returns {Real}
 function hotbar_get_item_type(_item)
 {
 	// Make sure the item is non-null:
@@ -59,8 +59,8 @@ function hotbar_get_item_type(_item)
 }
 
 /// @description Get the sprite of the hotbar item.
-/// @param _item The item index of the hotbar item.
-/// @returns Sprite index or -1
+/// @param {Real} _item The item index of the hotbar item.
+/// @returns {Any}
 function hotbar_get_item_count(_item)
 {
 	// Make sure the item is non-null and stackable:
@@ -74,8 +74,8 @@ function hotbar_get_item_count(_item)
 }
 
 /// @description Get the durability of the hotbar item.
-/// @param _item The item index of the hotbar item.
-/// @returns Real
+/// @param {Real} _item The item index of the hotbar item.
+/// @returns {Real}
 function hotbar_get_item_durability(_item)
 {
 	// Make sure the item is non-null and breakable:
@@ -89,8 +89,8 @@ function hotbar_get_item_durability(_item)
 }
 
 /// @description Get the maximum durability of the hotbar item.
-/// @param _item The item index of the hotbar item.
-/// @returns Real
+/// @param {Real} _item The item index of the hotbar item.
+/// @returns {Real}
 function hotbar_get_item_durability_max(_item)
 {
 	// Make sure the item is non-null and breakable:
@@ -104,8 +104,8 @@ function hotbar_get_item_durability_max(_item)
 }
 
 /// @description Get the damage output of the hotbar item.
-/// @param _item The item index of the hotbar item.
-/// @returns Real
+/// @param {Real} _item The item index of the hotbar item.
+/// @returns {Real}
 function hotbar_get_item_damage_output(_item)
 {
 	// Make sure the item is non-null:
@@ -120,7 +120,7 @@ function hotbar_get_item_damage_output(_item)
 
 /// @description Get whether the hotbar item is breakable or not.
 /// @param _item The item index of the hotbar item.
-/// @returns Boolean
+/// @returns {Bool}
 function hotbar_is_item_breakable(_item)
 {
 	// Make sure the item is non-null:
@@ -135,7 +135,7 @@ function hotbar_is_item_breakable(_item)
 
 /// @description Get whether the hotbar item is stackable or not.
 /// @param _item The item index of the hotbar item.
-/// @returns Boolean
+/// @returns {Bool}
 function hotbar_is_item_stackable(_item)
 {
 	// Make sure the item is non-null:
@@ -149,8 +149,7 @@ function hotbar_is_item_stackable(_item)
 }
 
 /// @description Clears the selected hotbar slot.
-/// @param _slot The slot index.
-/// @returns N/A
+/// @param {Real} _slot The slot index.
 function hotbar_clear_slot(_slot)
 {
 	// Clear the slot:
@@ -159,8 +158,7 @@ function hotbar_clear_slot(_slot)
 
 /// @description Damage the hotbar item.
 /// @param _item The item index of the hotbar item.
-/// @param _dmg (optional) The amount of damage to give to the item (usually 1).
-/// @returns Boolean
+/// @param {Real} _dmg (optional) The amount of damage to give to the item (usually 1).
 function hotbar_item_take_damage(_item, _dmg=1)
 {
 	// Make sure the item is non-null:

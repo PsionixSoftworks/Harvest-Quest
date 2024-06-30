@@ -1,6 +1,6 @@
 /// @description Get the sprite of the inventory item.
-/// @param _item The item index of the inventory item.
-/// @returns Sprite index or -1
+/// @param {Real} _item The item index of the inventory item.
+/// @returns {Asset.GMSprite}
 function inventory_get_item_icon(_item)
 {
 	// Make sure the item is non-null:
@@ -14,8 +14,8 @@ function inventory_get_item_icon(_item)
 }
 
 /// @description Get the name of the inventory item.
-/// @param _item The item index of the inventory item.
-/// @returns String
+/// @param {Real} _item The item index of the inventory item.
+/// @returns {String}
 function inventory_get_item_name(_item)
 {
 	// Make sure the item is non-null:
@@ -29,8 +29,8 @@ function inventory_get_item_name(_item)
 }
 
 /// @description Get the id of the inventory item.
-/// @param _item The item index of the inventory item.
-/// @returns Real
+/// @param {Real} _item The item index of the inventory item.
+/// @returns {Real}
 function inventory_get_item_id(_item)
 {
 	// Make sure the item is non-null:
@@ -44,8 +44,8 @@ function inventory_get_item_id(_item)
 }
 
 /// @description Get the type of the inventory item.
-/// @param _item The item index of the inventory item.
-/// @returns Real
+/// @param {Real} _item The item index of the inventory item.
+/// @returns {Real}
 function inventory_get_item_type(_item)
 {
 	// Make sure the item is non-null:
@@ -59,8 +59,8 @@ function inventory_get_item_type(_item)
 }
 
 /// @description Get the damage output of the inventory item.
-/// @param _item The item index of the inventory item.
-/// @returns Real
+/// @param {Real} _item The item index of the inventory item.
+/// @returns {Real}
 function inventory_get_item_damage_output(_item)
 {
 	// Make sure the item is non-null:
@@ -74,8 +74,8 @@ function inventory_get_item_damage_output(_item)
 }
 
 /// @description Get the durability of the inventory item.
-/// @param _item The item index of the inventory item.
-/// @returns Real
+/// @param {Real} _item The item index of the inventory item.
+/// @returns {Real}
 function inventory_get_item_durability(_item)
 {
 	// Make sure the item is non-null:
@@ -89,8 +89,8 @@ function inventory_get_item_durability(_item)
 }
 
 /// @description Get the maximum durability of the inventory item.
-/// @param _item The item index of the inventory item.
-/// @returns Real
+/// @param {Real} _item The item index of the inventory item.
+/// @returns {Real}
 function inventory_get_item_durability_max(_item)
 {
 	// Make sure the item is non-null:
@@ -104,8 +104,8 @@ function inventory_get_item_durability_max(_item)
 }
 
 /// @description Get the count of the inventory item.
-/// @param _item The item index of the inventory item.
-/// @returns Real
+/// @param {Real} _item The item index of the inventory item.
+/// @returns {Real}
 function inventory_get_item_count(_item)
 {
 	// Make sure the item is non-null:
@@ -119,8 +119,8 @@ function inventory_get_item_count(_item)
 }
 
 /// @description Get whether the inventory item is breakable or not.
-/// @param _item The item index of the hotbar item.
-/// @returns Boolean
+/// @param {Real} _item The item index of the hotbar item.
+/// @returns {Bool}
 function inventory_item_is_breakable(_item)
 {
 	// Make sure the item is non-null:
@@ -134,8 +134,8 @@ function inventory_item_is_breakable(_item)
 }
 
 /// @description Get whether the hotbar item is stackable or not.
-/// @param _item The item index of the hotbar item.
-/// @returns Boolean
+/// @param {Real} _item The item index of the hotbar item.
+/// @returns {Bool}
 function inventory_item_is_stackable(_item)
 {
 	// Make sure the item is non-null:
