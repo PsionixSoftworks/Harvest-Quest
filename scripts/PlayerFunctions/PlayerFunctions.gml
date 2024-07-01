@@ -33,8 +33,29 @@ function player_state_normal()
 	xspeed = (keyboard_check(ord("D")) - keyboard_check(ord("A"))) * spd;
 	yspeed = (keyboard_check(ord("S")) - keyboard_check(ord("W"))) * spd;
 	
-	// Implement sprinting:
-	spd = keyboard_check(vk_lshift) ? max_run_speed : max_walk_speed;
+	// Implement sprinting (temporary system):
+	if (stamina > 0.5)
+	{
+		// Set speed based on whether or not the user is holding the shift key:
+		spd = keyboard_check(vk_lshift) ? max_run_speed : max_walk_speed;
+	}
+	else
+	{
+		// Set the speed to the walk speed regardless:
+		spd = max_walk_speed;
+	}
+	
+	// Check if we're running:
+	if (spd > max_walk_speed)
+	{
+		// Decrement stamina:
+		stamina -= 0.5;
+	}
+	else
+	{
+		// Increment stamina:
+		stamina += 0.25;
+	}
 	
 	// Check for horizontal movement:
 	if (xspeed == 0)

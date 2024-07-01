@@ -5,6 +5,7 @@ yspeed			= 0;									// The y movement speed.
 max_walk_speed	= 1;									// Sets the walking speed.
 max_run_speed	= max_walk_speed * 2;					// Run speed = walk speed * 2
 spd				= max_walk_speed;						// Current movement speed.
+stamina			= 100;									// Current stamina.
 facing			= "Down";								// The direction the player is facing.
 action			= "Walk";								// The action the player is performing.
 state			= PLAYER_STATE.PLAYER_STATE_NORMAL;		// Set the default state.
