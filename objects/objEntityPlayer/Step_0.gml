@@ -23,7 +23,7 @@ if (keyboard_check_pressed(vk_enter))
 	// Check if the inventory exists:
 	if (instance_exists(_inst))
 	{
-		// Toggle the inventory and player's active flag:
+		// Toggle the inventory and player's active flag: 
 		_inst.active = !_inst.active;
 		active = !_inst.active;
 	}

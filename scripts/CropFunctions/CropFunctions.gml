@@ -204,7 +204,7 @@ function crop_get_type(_crop)
 }
 
 /// @description Get the age of the crop (in days).
-/// @param {Real} _crop The crop index of the crop.
+/// @param {Id.Instance} _crop The crop index of the crop.
 /// @returns {Real}
 function crop_get_age(_crop)
 {
@@ -219,7 +219,7 @@ function crop_get_age(_crop)
 }
 
 /// @description Get the growth rate of the crop.
-/// @param {Real} _crop The crop index of the crop.
+/// @param {Id.Instance} _crop The crop index of the crop.
 /// @returns {Real}
 function crop_get_growth_rate(_crop)
 {
@@ -234,7 +234,7 @@ function crop_get_growth_rate(_crop)
 }
 
 /// @description Get the grwoth stage of the crop.
-/// @param {Real} _crop The crop index of the crop.
+/// @param {Id.Instance} _crop The crop index of the crop.
 /// @returns {Real}
 function crop_get_growth_stage(_crop)
 {
@@ -249,7 +249,7 @@ function crop_get_growth_stage(_crop)
 }
 
 /// @description Get the maximum growth stage of the crop.
-/// @param {Real} _crop The crop index of the crop.
+/// @param {Id.Instance} _crop The crop index of the crop.
 /// @returns {Real}
 function crop_get_growth_stage_max(_crop)
 {
@@ -264,7 +264,7 @@ function crop_get_growth_stage_max(_crop)
 }
 
 /// @description Get whether the crop is fully grown or not.
-/// @param {Real} _crop The crop index of the crop.
+/// @param {Id.Instance} _crop The crop index of the crop.
 /// @returns {Bool}
 function crop_is_fully_grown(_crop)
 {
@@ -279,7 +279,7 @@ function crop_is_fully_grown(_crop)
 }
 
 /// @description Get whether the crop is wet or not.
-/// @param {Real} _crop The crop index of the crop.
+/// @param {Id.Instance} _crop The crop index of the crop.
 /// @returns {Bool}
 function crop_is_wet(_crop)
 {
@@ -294,7 +294,7 @@ function crop_is_wet(_crop)
 }
 
 /// @description Age up the crop by one day.
-/// @param {Real} _crop The crop index of the crop.
+/// @param {Id.Instance} _crop The crop index of the crop.
 function crop_age_up(_crop)
 {
 	// Make sure the crop exists:
@@ -306,7 +306,7 @@ function crop_age_up(_crop)
 }
 
 /// @description Set the growth rate of the crop.
-/// @param {Real} _crop The crop index of the crop.
+/// @param {Id.Instance} _crop The crop index of the crop.
 /// @param {Real} _x The growth rate of the crop.
 function crop_set_growth_rate(_crop, _x)
 {
@@ -319,7 +319,7 @@ function crop_set_growth_rate(_crop, _x)
 }
 
 /// @description Set the growth stage of the crop.
-/// @param {Real} _crop The crop index of the crop.
+/// @param {Id.Instance} _crop The crop index of the crop.
 /// @param {Real} _x The growth stage of the crop.
 function crop_set_growth_stage(_crop, _x)
 {
@@ -332,7 +332,7 @@ function crop_set_growth_stage(_crop, _x)
 }
 
 /// @description Set the maximum growth stage of the crop.
-/// @param {Real} _crop The crop index of the crop.
+/// @param {Id.Instance} _crop The crop index of the crop.
 /// @param {Real} _x The maximum growth stage of the crop.
 function crop_set_growth_stage_max(_crop, _x)
 {
@@ -345,8 +345,8 @@ function crop_set_growth_stage_max(_crop, _x)
 }
 
 /// @description Set the crop wet.
-/// @param {Real} _crop The crop index of the crop.
-/// @param {Real} _x Whether the crop is wet or not.
+/// @param {Id.Instance} _crop The crop index of the crop.
+/// @param {Bool} _x Whether the crop is wet or not.
 function crop_set_wet(_crop, _x)
 {
 	// Make sure the crop exists:

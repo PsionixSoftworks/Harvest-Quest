@@ -1,6 +1,6 @@
 /// @description Initialize the time of day.
 // Declare instance variables:
-time_of_day				= 21600;						// Time of day is any number between 0 and 86400.
+time_of_day				= 43200;						// Time of day is any number between 0 and 86400.
 seconds					= 0;							// The number of seconds passed.
 minutes					= 0;							// The number of minutes passed.
 hours					= 0;							// The number of hours passed.
@@ -10,7 +10,7 @@ daytime					= true;							// Used for the ambient sounds.
 shader_index			= shDayNight;					// The shader index we're using.
 u_col					= shader_get_uniform(shader_index, "col");
 u_modifier				= shader_get_uniform(shader_index, "modifier");
-color[0, 0]				= undefined;
+color[0, 0]				= -1;
 color_mix				= -1;
 modifier_mix			= -1;
 modifier				= -1;

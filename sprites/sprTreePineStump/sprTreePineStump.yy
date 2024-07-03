@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Use Later",
-    "path":"folders/Sprites/Trees/Use Later.yy",
+    "name":"Trees",
+    "path":"folders/Sprites/Trees.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

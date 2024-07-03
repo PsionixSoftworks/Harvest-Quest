@@ -401,10 +401,13 @@ function player_state_axe()
 	image_speed = 1;
 	
 	// Set this here for code consistency:
-	var _inst = noone;
+	var _inst, _hotbar, _item;
 	
 	// Find a tree when the player is facing down:
-	_inst = instance_place(x, y + 1, objTree);
+	_inst	= noone;
+	_hotbar = instance_find(objInterfaceInventory, 0);
+	_item	= _hotbar.hotbar_slots[| _hotbar.selected_slot];
+		_hotbar = instance_place(x, y + 1, objTree);
 	if (_inst != noone && _inst.can_be_harvested)
 	{
 		// Check if we're facing down:
@@ -417,6 +420,7 @@ function player_state_axe()
 				{
 					_inst.hp--;
 					_inst.hit = true;
+					hotbar_item_take_damage(_item);
 				}
 			}
 		}
@@ -436,6 +440,7 @@ function player_state_axe()
 				{
 					_inst.hp--;
 					_inst.hit = true;
+					hotbar_item_take_damage(_item);
 				}
 			}
 		}
@@ -455,6 +460,7 @@ function player_state_axe()
 				{
 					_inst.hp--;
 					_inst.hit = true;
+					hotbar_item_take_damage(_item);
 				}
 			}
 		}
@@ -474,6 +480,7 @@ function player_state_axe()
 				{
 					_inst.hp--;
 					_inst.hit = true;
+					hotbar_item_take_damage(_item);
 				}
 			}
 		}

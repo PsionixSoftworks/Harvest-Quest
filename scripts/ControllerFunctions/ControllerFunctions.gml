@@ -2,8 +2,9 @@
 function check_instances()
 {
 	// Declare local variables:
-	var _crop_mgr, _timeofday, _player, _camera, _inventory, _hotbar, _layer;
+	var _crop_mgr, _season_mgr, _timeofday, _player, _camera, _inventory, _hotbar, _layer;
 		_crop_mgr	= instance_find(objCropManager,			0);
+		_season_mgr	= instance_find(objSeasonManager,		0);
 		_timeofday	= instance_find(objTimeOfDay,			0);
 		_player		= instance_find(objEntityPlayer,		0);
 		_camera		= instance_find(objCamera,				0);
@@ -16,6 +17,13 @@ function check_instances()
 	{
 		print_warn("No valid crop manager in scene. Creating a new one.");
 		_crop_mgr		= instance_create_layer(0, 0, _layer, objCropManager);
+	}
+	
+	// Check if the season manager has been placed in the room:
+	if (!instance_exists(_season_mgr))
+	{
+		print_warn("No valid season manager in scene. Creating a new one.");
+		_season_mgr		= instance_create_layer(0, 0, _layer, objSeasonManager);
 	}
 	
 	// Check if the time of day has been placed in the room:
