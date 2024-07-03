@@ -278,12 +278,19 @@ function player_state_normal()
 								var _crop_inst = noone;
 								
 								// Plant a seed wherever the mouse it and decrement one from the count:
-								var _crop_id = hotbar_get_item_id(_item);
-								if (!collision_rectangle(_xx, _yy, _xx + grid_w, _yy + grid_h, objCrop, false, true))
+								var _layer_id, _map_id, _tile_data;
+									_layer_id = layer_get_id("Tiles_1");
+									_map_id = layer_tilemap_get_id(_layer_id);
+									_tile_data = tilemap_get_at_pixel(_map_id, _xx, _yy);
+								if (_tile_data == 132)
 								{
-									crop_place_at(_xx, _yy, _crop_id);
-									_item.item_count--;
-									lmb_released = false;
+									var _crop_id = hotbar_get_item_id(_item);
+									if (!collision_rectangle(_xx, _yy, _xx + grid_w, _yy + grid_h, objCrop, false, true))
+									{
+										crop_place_at(_xx, _yy, _crop_id);
+										_item.item_count--;
+										lmb_released = false;
+									}
 								}
 							}
 						}
