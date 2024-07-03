@@ -311,8 +311,15 @@ function player_state_pickaxe()
 	sprite_index = asset_get_index("sprChar1Pickaxe" + string(facing));
 	image_speed = 1;
 	
+	// Set this here for code consistency:
+	var _inst, _hotbar, _item;
+	
+	// Declare local variables:
+	_hotbar = instance_find(objInterfaceInventory, 0);
+	_item	= _hotbar.hotbar_slots[| _hotbar.selected_slot];
+	
 	// Find an ore when the player is facing down:
-	var _inst = instance_place(x, y + 1, objOre);
+	_inst = instance_place(x, y + 4, objOre);
 	if (_inst != noone)
 	{
 		// Check if we're facing down:
@@ -326,13 +333,14 @@ function player_state_pickaxe()
 					_inst.hp--;
 					_inst.hit = true;
 					_inst.yoffset = 1;
+					hotbar_item_take_damage(_item);
 				}
 			}
 		}
 	}
 	
 	// Find an ore when the player is facing up:
-	_inst = instance_place(x, y - 1, objOre);
+	_inst = instance_place(x, y - 4, objOre);
 	if (_inst != noone)
 	{
 		// Check if we're facing down:
@@ -346,13 +354,14 @@ function player_state_pickaxe()
 					_inst.hp--;
 					_inst.hit = true;
 					_inst.yoffset = -1;
+					hotbar_item_take_damage(_item);
 				}
 			}
 		}
 	}
 	
 	// Find an ore when the player is facing right:
-	_inst = instance_place(x + 1, y, objOre);
+	_inst = instance_place(x + 4, y, objOre);
 	if (_inst != noone)
 	{
 		// Check if we're facing down:
@@ -367,13 +376,14 @@ function player_state_pickaxe()
 					_inst.hit = true;
 					_inst.xoffset = 1;
 					_inst.yoffset = 1;
+					hotbar_item_take_damage(_item);
 				}
 			}
 		}
 	}
 	
 	// Find an ore when the player is facing left:
-	_inst = instance_place(x - 1, y, objOre);
+	_inst = instance_place(x - 4, y, objOre);
 	if (_inst != noone)
 	{
 		// Check if we're facing down:
@@ -388,6 +398,7 @@ function player_state_pickaxe()
 					_inst.hit = true;
 					_inst.xoffset = -1;
 					_inst.yoffset = 1;
+					hotbar_item_take_damage(_item);
 				}
 			}
 		}
@@ -407,7 +418,7 @@ function player_state_axe()
 	_inst	= noone;
 	_hotbar = instance_find(objInterfaceInventory, 0);
 	_item	= _hotbar.hotbar_slots[| _hotbar.selected_slot];
-		_hotbar = instance_place(x, y + 1, objTree);
+		_hotbar = instance_place(x, y + 4, objTree);
 	if (_inst != noone && _inst.can_be_harvested)
 	{
 		// Check if we're facing down:
@@ -427,7 +438,7 @@ function player_state_axe()
 	}
 	
 	// Find a tree when the player is facing up:
-	_inst = instance_place(x, y - 1, objTree);
+	_inst = instance_place(x, y - 4, objTree);
 	if (_inst != noone && _inst.can_be_harvested)
 	{
 		// Check if we're facing up:
@@ -447,7 +458,7 @@ function player_state_axe()
 	}
 	
 	// Find a tree when the player is facing right:
-	_inst = instance_place(x + 1, y, objTree);
+	_inst = instance_place(x + 4, y, objTree);
 	if (_inst != noone && _inst.can_be_harvested)
 	{
 		// Check if we're facing right:
@@ -467,7 +478,7 @@ function player_state_axe()
 	}
 	
 	// Find a tree when the player is facing left:
-	_inst = instance_place(x - 1, y, objTree);
+	_inst = instance_place(x - 4, y, objTree);
 	if (_inst != noone && _inst.can_be_harvested)
 	{
 		// Check if we're facing left:
